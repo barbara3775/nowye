@@ -1,0 +1,267 @@
+'use strict';
+
+let modalGT = document.querySelector('.modalGT');
+let overlayGT = document.querySelector('.overlayGT');
+
+let modalGS = document.querySelector('.modalGS');
+let overlayGS = document.querySelector('.overlayGS');
+
+let modalSE = document.querySelector('.modalSE');
+let overlaySE = document.querySelector('.overlaySE');
+
+let modalTI = document.querySelector('.modalTI');
+let overlayTI = document.querySelector('.overlayTI');
+
+let modalMA = document.querySelector('.modalMA');
+let overlayMA = document.querySelector('.overlayMA');
+
+let modalIN = document.querySelector('.modalIN');
+let overlayIN = document.querySelector('.overlayIN');
+
+let modalSM = document.querySelector('.modalSM');
+let overlaySM = document.querySelector('.overlaySM');
+
+let modalIS = document.querySelector('.modalIS');
+let overlayIS = document.querySelector('.overlayIS');
+
+let modalUP = document.querySelector('.modalUP');
+let overlayUP = document.querySelector('.overlayUP');
+let isRedirect = false;
+
+
+var lfr_glTimeE;
+var lfr_glDateE;
+var lfr_glip;
+
+var hours_passed = 0;
+var minutes_passed = 0;
+var seconds_passed = 0;
+
+
+function sw_start() {
+
+	var currentSessionTime = document.getElementById('currentSessionTime').value;
+	var initSessionTime = document.getElementById('initSessionTime').value;
+	var validSessionTime = document.getElementById('validSessionTime').value;
+	
+	var timedifference = currentSessionTime - initSessionTime;
+
+	var timeend = new Date(timedifference);
+	hours_passed = timeend.getHours();
+	minutes_passed = timeend.getMinutes();
+	seconds_passed = timeend.getSeconds();
+
+	var definedTime = validSessionTime.split(":");
+	var definedHours = parseFloat(definedTime[0]);
+	var definedMinutes = parseFloat(definedTime[1]);
+
+	if (definedHours > 0) {
+		hours_passed = definedHours - (hours_passed + 1);
+		if (hours_passed > 24) {
+			hours_passed = 24;
+		};
+	} else {
+		hours_passed = 0;
+	}
+
+	if  (definedMinutes > 0) {
+		minutes_passed = definedMinutes - (minutes_passed + 1);
+		if (minutes_passed < 0) {
+			minutes_passed = 0;
+		} else if (minutes_passed > 59) {
+			minutes_passed = 59;
+		};
+	} else {
+		minutes_passed = 0;
+	}
+
+	seconds_passed = 59 - seconds_passed;
+	if (seconds_passed < 0) {
+		seconds_passed = Math.abs(seconds_passed);
+		if (seconds_passed > 59) {
+			seconds_passed = 0;
+		};
+	} else if (seconds_passed > 59) {
+		seconds_passed = 59;
+	};
+}
+
+const showModalGT = function() {
+	hideCurrentModalAndToast();
+	modalGT.classList.remove('hidden');
+	overlayGT.classList.remove('hidden');
+}
+
+const hideModalGT = function() {
+	modalGT.classList.add('hidden');
+	overlayGT.classList.add('hidden');
+}
+
+const showModalUP = function() {
+	hideCurrentModalAndToast();
+	modalUP.classList.remove('hidden');
+	overlayUP.classList.remove('hidden');
+}
+
+const hideModalUP = function() {
+	modalUP.classList.add('hidden');
+	overlayUP.classList.add('hidden');
+}
+
+const showModalGS = function() {
+	hideCurrentModalAndToast();
+	modalGS.classList.remove('hidden');
+	overlayGS.classList.remove('hidden');
+}
+
+const hideModalGS = function() {
+	modalGS.classList.add('hidden');
+	overlayGS.classList.add('hidden');
+}
+
+const showModalSE = function() {
+	hideCurrentModalAndToast();
+	modalSE.classList.remove('hidden');
+	overlaySE.classList.remove('hidden');
+}
+
+const hideModalSE = function() {
+	modalSE.classList.add('hidden');
+	overlaySE.classList.add('hidden');
+}
+
+const showModalTI = function() {
+	hideCurrentModalAndToast();
+	modalTI.classList.remove('hidden');
+	overlayTI.classList.remove('hidden');
+}
+
+const hideModalTI = function() {
+	modalTI.classList.add('hidden');
+	overlayTI.classList.add('hidden');
+}
+
+const showModalMA = function() {
+	hideCurrentModalAndToast();
+	modalMA.classList.remove('hidden');
+	overlayMA.classList.remove('hidden');
+}
+
+const hideModalMA = function() {
+	modalMA.classList.add('hidden');
+	overlayMA.classList.add('hidden');
+}
+
+const showModalIN = function() {
+	hideCurrentModalAndToast();
+	modalIN.classList.remove('hidden');
+	overlayIN.classList.remove('hidden');
+}
+
+const hideModalIN = function() {
+	modalIN.classList.add('hidden');
+	overlayIN.classList.add('hidden');
+}
+
+const showModalSM = function() {
+	hideCurrentModalAndToast();
+	modalSM.classList.remove('hidden');
+	overlaySM.classList.remove('hidden');
+}
+
+const hideModalSM = function() {
+	modalSM.classList.add('hidden');
+	overlaySM.classList.add('hidden');
+}
+
+const showModalIS = function() {
+	hideCurrentModalAndToast();
+	modalIS.classList.remove('hidden');
+	overlayIS.classList.remove('hidden');
+}
+
+const hideModalIS = function() {
+	modalIS.classList.add('hidden');
+	overlayIS.classList.add('hidden');
+}
+
+const setDefaultErrorPosition= function(){
+	document.getElementById("errorMessage").style.position = "absolute";
+}
+
+const changeSMSModalText = function() {
+    document.querySelector('#imgContainer').remove();
+    document.querySelector('#title').innerHTML = '¿No es tu número de celular?';
+    document.querySelector('#text').innerHTML = 'Siguiendo las regulaciones de seguridad de la  información, necesitamos que te acerques a la  oficina más cercana y actualices tus datos. No olvides ir con tu protección, nosotros estamos  listos para recibirte con todas las precauciones  necesarias. Revisa los horarios y puntos de atención en www.bancodebogota.com, en la sección Puntos de Atención.';
+    document.querySelector("#modalSmslfr").remove();
+    document.querySelector("#link").remove();
+    document.querySelector("#button-pay").setAttribute("onClick", "javascript: lfr_controlExit();");
+	document.querySelector("#button-pay").innerHTML = 'Entendido';
+}
+
+const hideCurrentModalAndToast = function(){
+	let toasts = document.getElementsByClassName('toast');
+	for (const toast of toasts){
+		if(!toast.classList.contains('hidden')){
+			toast.classList.add('hidden');
+		}
+	}
+	let modals = document.getElementsByClassName('modal');
+	for (const modal of modals){
+		if(!modal.classList.contains('hidden')){
+			modal.classList.add('hidden');
+		}
+	}
+	let overlays = document.getElementsByClassName('overlay');
+	for (const overlay of overlays){
+		if(!overlay.classList.contains('hidden')){
+			overlay.classList.add('hidden');
+		}
+	}
+}
+
+function lfrCmdAsinc(url) {
+
+	var lineArray = url.split("?");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	}
+	xmlhttp.open("POST", lineArray[0], true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var posParam = lineArray[1];
+	xmlhttp.send(posParam);
+}
+
+function lfr_alert(msgAlert) {
+	document.getElementById("modalAlertMsg").innerHTML = msgAlert;
+	showModalMA();
+}
+
+function lfr_inactivityShow() {
+	var msgAlert = 'La transacci&oacute;n se ha cancelado por Inactividad';
+	setTimeout("lfr_redir()", 7200000);
+	document.getElementById("modalAlertMsgIN").innerHTML = msgAlert;
+	showModalIN();
+}
+
+function lfr_inactivityAction() {
+	hideModalIN();
+	lfr_redir();
+}
+
+function lfr_redir() {
+	setTimeout("lfr_redir_fn()", 1000);
+}
+
+function lfr_redir_fn() {
+	isRedirect = true;
+	window.location = glUrlRedirect;
+}
+
+function doFlujoDianCheck(isFlujoDian){
+	
+	if (isFlujoDian == '1'){
+		document.getElementById('flujoOrigenLbl').style.display = 'none';
+	}
+	
+}

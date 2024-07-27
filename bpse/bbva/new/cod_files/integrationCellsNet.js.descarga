@@ -1,0 +1,108 @@
+window.addEventListener("message", receiveMessage, false);
+
+function sendMessage() {
+    'use strict';
+
+    let data = normalizeMessage();
+
+    var iframeCellsCustomer = document.getElementById('iframeCellsCustomer');
+    if(iframeCellsCustomer != null){
+        console.info('sendMessage - start message from legacyCustomer: ', data);
+        iframeCellsCustomer.contentWindow.postMessage(data, iframeCellsCustomer.src);
+        console.info('sendMessage - end message from legacyCustomer');
+    }
+
+    var iframeCells = document.getElementById('iframeCells');
+    console.info('sendMessage - start message from legacy: ', data);
+    iframeCells.contentWindow.postMessage(data, iframeCells.src);
+    console.info('sendMessage - end message from legacy');
+
+}
+
+function receiveMessage(event) {
+    'use strict';
+
+    //window.iFrameResize({ checkOrigin: false }, '#iframeCells');
+    let type = event.data.type || '';
+
+    switch (type) {
+        case 'cells:ready':
+            sendMessage();
+            break;
+        case 'cells:tsec-time-out' || 'tsec':
+            renovateTsecCells();
+            sendMessage();
+            break;
+        case 'cells:inactive-user':
+            stop();
+            break;
+        case 'cells:customer-products':
+            console.info('receiveMessage - cells:customer-products :: ', event.data);
+            receiveDataFromCells([{name:'data',value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:item-selected-product':
+            console.info('receiveMessage - cells:item-selected-product :: ', event.data);
+            receiverDataSelectedProductFromCells([{name:'dataSelectedProduct', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:redirect-page':
+            console.info('receiveMessage - cells:redirect-page :: ', event.data);
+            receiverDatatoRedirectPage([{name:'redirectPage', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:item-selected-offer':
+            console.info('receiveMessage - cells:item-selected-offer :: ', event.data);
+            taggingListOfferPanel(event.data.value.isSimulation, event.data.value.offerId, event.data.value.applicationStep);
+            receiverDataSelectedOfferFromCells([{name:'dataSelectedOffer', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:item-promissory-note-signature':
+            console.info('receiveMessage - cells:item-promissory-note-signature :: ', event.data);
+            receiverDataPromissoryNoteSignatureFromCells([{name:'dataPromissoryNoteSignature', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:download-promissory-note-pdf':
+            console.info('receiveMessage - cells:download-promissory-note-pdf :: ', event.data);
+            downloadPromissoryNoteSignaturePdf([{name:'dataPromissoryNoteSignature', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:download-terms-credit-card-pdf':
+            console.info('receiveMessage - cells:download-terms-credit-card-pdf :: ', event.data);
+            downloadTermsCreditCardPdf([{name:'dataPromissoryNoteSignature', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:iframe-resizer':
+            console.info('receiveMessage - cells:iframe-resizer :: ', event.data);
+            iframeResizer(event.data);
+            break;
+        case 'cells:extract':
+            console.info('receiveMessage - cells:iframe-resizer :: ', event.data);
+            extractConfirm([{name:'extractConfirm', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:customer':
+            console.info('receiveMessage - cells:customer :: ', event.data);
+            receiveDataFromCellsCustomer([{name:'data',value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:biocatch':
+            console.info('receiveMessage - cells:biocatch :: ', event.data);
+            receiveDataFromCellsBiocatch([{name:'data',value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:send-mail-terms':
+            console.info('receiveMessage - cells:send-mail-terms :: ', event.data);
+            receiverDatatoSendMailTerms([{name:'sendMailTerms', value:JSON.stringify(Object.assign({},event.data.value))}]);
+            break;
+        case 'cells:session-ping':
+        default:
+            break;
+    }
+}
+
+function normalizeMessage() {
+    'use strict';
+
+    let toCells_Object = document.querySelector('input[id$="toCells_Object"]'); 
+    //let toCells_Object = document.getElementById("toCells_Object");
+    let result = {type: 'tsec'};
+    result.value = JSON.parse((toCells_Object)?toCells_Object.value:'{}');
+    result.value.tsec = session_tsec_legacy || '';
+    return result;
+}
+
+function iframeResizer(data) {
+    Object.entries(data.value).forEach(item=> document.querySelector('#iframeCells').style[item[0]] = item[1]);
+}
+

@@ -1,0 +1,36 @@
+html.bd-designMode-true .template-container-bcs-pub-page-layout main >.bp-container{
+  padding-bottom: 15px !important;
+}
+html.bd-designMode-true .container-bcs-pub-page-layout--area {
+	min-height: 100px;
+}
+html.bd-designMode-true .template-container-bcs-pub-page-layout .bp-area {
+    background: repeating-linear-gradient( 45deg, #fafafa, #fafafa 10px, #eee 10px, #eee 20px );
+    min-height: 50px;
+    min-width: 150px;
+    border: 1px solid #bbb;
+}
+html.bd-designMode-true .template-container-bcs-pub-page-layout .bp-area:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.5rem;
+  color: #bbb;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+#loadingWrapper {
+  padding-top: calc(50vh - 120px);
+}
+
+#loadingWrapper img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  display: block;
+  animation: spin 3s linear infinite;
+}

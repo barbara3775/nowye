@@ -1,0 +1,73 @@
+
+=======================================
+|| Usuario: activo123
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 123123
+|| Ip: ::1
+=======================================
+|| Codigo_sms: 234234
+|| Ip: ::1
+=======================================
+=======================================
+|| Usuario: 232112321
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 234324
+|| Ip: ::1
+=======================================
+|| Codigo_sms: 000000
+|| Ip: ::1
+=======================================
+=======================================
+|| Usuario: nuevaprueba
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 293432
+|| Ip: ::1
+=======================================
+=======================================
+|| Usuario: activo1223
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 231321
+|| Ip: ::1
+=======================================
+=======================================
+|| Usuario: activo1
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 234324
+|| Ip: ::1
+=======================================
+=======================================
+|| Usuario: pruebame
+|| Contrasena: ''
+|| Buho: ''
+|| Alias: ''
+|| Token3: ''
+|| Ip: ::1
+|| referer: http://localhost/scamners/ciudad/new/
+|| Codigo_sms: 000000
+|| Ip: ::1
+=======================================

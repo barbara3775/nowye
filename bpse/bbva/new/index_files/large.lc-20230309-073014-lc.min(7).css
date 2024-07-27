@@ -1,0 +1,13 @@
+@media(min-width:992px){.toolgrid__base{padding:72px 0 56px}
+.toolgrid__wrapper{margin-top:40px}
+.toolgrid__swiper--center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.toolgrid__title{font-size:36px;line-height:40px}
+.toolgrid__title{margin-bottom:48px}
+.toolgrid__subtitle{font-size:20px}
+}
+@media(min-width:992px) and (max-width:1199px){.tabs__content__item .toolgrid{margin:0 calc((100vw - 928px)/ -2)}
+}
+@media(min-width:1200px){.tabs__content__item .toolgrid{margin:0 calc((100vw - 1144px)/ -2)}
+}
+@media(min-width:600px) and (max-width:991px){.toolgrid .swiper-container{margin-bottom:24px}
+}

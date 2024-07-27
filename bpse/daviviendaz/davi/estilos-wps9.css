@@ -1,0 +1,6 @@
+.layoutRow.ibmDndRow.component-container, .layoutColumn.ibmDndColumn.component-container{
+	width: 100%;
+}
+.wpthemeAccess{
+	display:none;
+}

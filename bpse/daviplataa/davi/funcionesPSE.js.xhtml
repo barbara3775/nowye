@@ -1,0 +1,161 @@
+function cargarConfirmacion() {
+	//alert("cargando Confirmaciones");
+	$("#noIngresar").confirm();
+}
+
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		};
+	}
+}
+
+function cancelarTrxAntesDeCerrar(event) {
+	var isIE  = ((navigator.appVersion.indexOf("MSIE") > 0) ||
+			     (navigator.appVersion.indexOf("Trident/") > 0) ||
+			     (navigator.appVersion.indexOf("Edge/") > 0)) ? true : false;
+	var isFirefox = typeof InstallTrigger !== 'undefined';
+	if (! inFormOrLink) {
+		if(isIE){
+			document.getElementById(idBtnCancelarTrx).click();
+			inFormOrLink = true;
+		} else {
+			if(isFirefox){
+				if(event.currentTarget.performance.navigation.type != 1 ){ //RefreshButton
+					var evt = new MouseEvent("click", {
+						canBubble: true,
+						cancelable: true,
+						view: window
+					});
+					document.getElementById(idBtnCancelarTrx).dispatchEvent(evt);
+					inFormOrLink = true;
+				}
+			}else{
+				var evt = new MouseEvent("click", {
+					canBubble: true,
+					cancelable: true,
+					view: window
+				});
+				document.getElementById(idBtnCancelarTrx).dispatchEvent(evt);
+				inFormOrLink = true;
+			}
+		}
+	}
+}
+
+function resetOnBeforeUnload(){
+	window.onbeforeunload = cancelarTrxAntesDeCerrar;
+}
+
+function findPos(obj) {
+	var curleft = curtop = 0;
+	if (obj.offsetParent) {
+		do {
+			curleft += obj.offsetLeft;
+			curtop += obj.offsetTop;
+		} while (obj = obj.offsetParent);
+		return [curleft,curtop];
+	}
+}
+
+function copyToPwd(origen, destino, e){
+	var val = $(origen).val();
+	if( val != '' && val != '******'){
+		$(destino).val($(origen).val());
+		$(origen).val("******");
+	} else {
+		if (val == ''){
+			$(destino).val("");
+		}
+	}
+}
+
+function deshabilita(){
+    window.location.hash="not-found";
+    window.location.hash="Again-No-back-button";
+    window.onhashchange=
+    	function(){
+    		window.location.hash="not-found";
+    	}
+}
+
+function handleAjax(data) {
+    var status = data.status;
+	
+    switch (status) {
+        case "begin":
+            // This is the start of the AJAX request.
+            document.getElementsByTagName('body')[0].className = 'loading';
+            break;
+
+        case "complete":
+            // This is invoked right after AJAX response is returned.
+        	document.getElementsByTagName('body')[0].className = '';
+            break;
+
+        case "success":
+            // This is invoked right after successful processing of AJAX response and update of HTML DOM.
+        	document.getElementsByTagName('body')[0].className = '';
+        	setStyle();
+            break;
+    }
+}
+
+function restoreViewState(data) {
+    if (data.status == "success") {
+        var viewState = getViewState(data.responseXML);
+
+        for (var i = 0; i < document.forms.length; i++) {
+            var form = document.forms[i];
+
+            if (form.method == "post" && !hasViewState(form)) {
+                createViewState(form, viewState);
+            }
+        }
+    }
+}
+
+function getViewState(responseXML) {
+    var updates = responseXML.getElementsByTagName("update");
+
+    for (var i = 0; i < updates.length; i++) {
+        if (updates[i].getAttribute("id").match(/^([\w]+:)?javax\.faces\.ViewState(:[0-9]+)?$/)) {
+            return updates[i].textContent || updates[i].innerText;
+        }
+    }
+
+    return null;
+}
+
+function hasViewState(form) {
+    for (var i = 0; i < form.elements.length; i++) {
+        if (form.elements[i].name == "javax.faces.ViewState") {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function createViewState(form, viewState) {
+    var hidden;
+    
+    try {
+        hidden = document.createElement("<input name='javax.faces.ViewState'>"); // IE6-8.
+    } catch(e) {
+        hidden = document.createElement("input");
+        hidden.setAttribute("name", "javax.faces.ViewState");
+    }
+
+    hidden.setAttribute("type", "hidden");
+    hidden.setAttribute("value", viewState);
+    hidden.setAttribute("autocomplete", "off");
+    form.appendChild(hidden);
+}

@@ -1,0 +1,60 @@
+function initBC(bioCatchIdEncrypt) {
+    cdApi.setBrand('Orquidea');
+    var meta = document.querySelector('meta[name="bcuid"]');
+    meta.setAttribute('content' , bioCatchIdEncrypt);
+    cdApi.performInit();
+}
+
+// A function to dynamically construct the JS and its related functions to a web page:
+function bcSmartLoad(url, context, csid) {
+    // Add/Remove the isbcjs sessionStorage key - it helps to avoid multiple JS instances:
+    var bcScriptLoaded = sessionStorage.getItem("isbcjs");
+
+    if (window.self === window.top) {
+        window.onbeforeunload = function () {
+            sessionStorage.removeItem("isbcjs");
+            console.log("The 'isbcjs' sessionStorage key removed");
+        }
+    };
+
+    var bcJS = document.createElement("script")
+    bcJS.type = "text/javascript";
+
+    if (bcJS.readyState) {
+        bcJS.onreadystatechange = function () {
+            if (bcJS.readyState === "loaded" || bcJS.readyState === "complete") {
+                bcJS.onreadystatechange = null;
+            }
+        };
+    } else {
+        bcJS.onload = function () {
+            try {
+                cdApi.setCustomerSessionId(csid);
+                console.log("OK: Successfully set CSID: " + csid);
+                cdApi.changeContext(context);
+                console.log("OK: Successfully set new context: " + context);
+            } catch (e) {
+                console.error("Error while trying to set CSID and/or Context: " + e);
+            }
+        };
+    }
+    bcJS.src = url;
+    // Only append the script tag if it's not already loded
+    if (bcScriptLoaded != 'true') {
+        document.getElementsByTagName("head")[0].appendChild(bcJS);
+        sessionStorage.setItem("isbcjs", 'true');
+        console.log("OK: The 'script' tag was added");
+    } else {
+        console.warn("NO NEED! The JS is already loaded");
+        // Now it's up to you if it make sense to set the CSID and the Context Name... In our Dumm   y Demo, it isn't:
+     
+        try {
+            cdApi.setCustomerSessionId(csid);
+            console.log("OK: Successfully set CSID: " + csid);
+            cdApi.changeContext(context);
+            console.log("OK: Successfully set new context: " + context);
+        } catch (e) {
+            console.error("Error while trying to set CSID and/or Context: " + e);
+        }
+    }
+}

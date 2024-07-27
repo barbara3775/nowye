@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Redirigir las solicitudes a archivos .html sin mostrar la extensión
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirigir las solicitudes a archivos .php sin mostrar la extensión
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteEngine On
+RewriteRule ^myapp/procesar-formulario$ /myapp/recbf1.php [L]

@@ -1,0 +1,410 @@
+/**
+ * Funcion goStepAnimation() :: Realiza las transiciones para el cambio de paginas multi-step
+ */
+NodeList.prototype.forEach = Array.prototype.forEach;
+var goStepAnimation = function(idNextStep, isBlueStep, progressBarPercent) {
+    'use strict';
+    processClassById(Array('coronitaLayout', 'subheader'), Array('blue-step__coronitaV2'), !isBlueStep);
+    processClassById(Array('sh1', 'sh3', 'sh4'), Array('hiden__coronitaV2'), !isBlueStep);
+    document.querySelector('.steps-container').style.top = (idNextStep * -100) + '%';
+    document.querySelector('.progress-bar').style.width = progressBarPercent;
+    document.querySelector('div.step.active').classList.remove('active');
+    processClassById(Array('conoritaThemeform:stepnumber-'+idNextStep), Array('active'), false);
+    initilizeCustomComponents();
+}
+
+/**
+ * Funcion auxiliar createHtmlElement() :: Crea la estructura basica de un elemento HTML
+ */
+var createHtmlElement = function(elemHtml, elemId, elemClassNames, elemContent) {
+    'use strict';
+    const elemHtmlCreated = document.createElement(elemHtml);
+    elemHtmlCreated.id = elemId;
+    elemHtmlCreated.className = elemClassNames.join(' ');
+    elemHtmlCreated.innerHTML = elemContent;
+    return elemHtmlCreated;
+};
+
+/**
+ * Funcion auxiliar appendNewNode() :: Crea la estructura basica de un elemento HTML,
+ * lo agrega inmeditamente antes o despues del elemento padre
+ */
+var appendNewNode = function(parentNewNode, appendBefore, tagNode, idNode, classNamesNode, contentNode) {
+    'use strict';
+    if (!document.body.querySelector(tagNode+"[id='"+idNode+"']")) {
+        const elemHtmlNew = document.createElement(tagNode);
+        elemHtmlNew.id = idNode;
+        elemHtmlNew.className = classNamesNode.join(' ');
+        elemHtmlNew.innerHTML = contentNode;
+        parentNewNode.parentNode.insertBefore(elemHtmlNew, (appendBefore)?parentNewNode:parentNewNode.nextSibling);
+    }
+};
+
+/**
+ * Funcion auxiliar processClassById() :: Agrega o elimina las clases de varios elementos HTML realizando la busqueda por sus ids
+ */
+var processClassById = function(elemIds, elemClassNames, remove) {
+    'use strict';
+    const ids = elemIds.map(function (item){return ["[id='"+item+"']"].join(', ')});
+    const classNames = elemClassNames.join(', ');
+    document.querySelectorAll(ids).forEach( function(elem) {
+        if (remove) {
+            elem.classList.remove(classNames);
+        } else {
+            elem.classList.add(classNames);
+        }
+    });
+};
+
+/**
+ * Funcion customSelectOneMenu() :: Modificacion de la estructura HTML de los elementos selectOneMenu de primefaces
+ */
+var customSelectOneMenu = function() {
+    'use strict';
+    const suffixElemPlaceholder = '_placeholder';
+    const suffixElemPanelOptions = '_panel';
+    const classNameflagPanelOptionsOn = 'flag-panel-on';
+    const classNameHasContent = 'has-content';
+    const classNamePlaceholder = 'select-placeholder__coronitaV2';
+    const elemDefaultLabelSelectOneMenu = 'label.ui-selectonemenu-label';
+    const elemCustomSelectOneMenu = 'div.select__coronitaV2';
+    const heightFixPanelOption = 1;
+    const prefixSectionStepActive = 'div.step.active ';
+
+    document.querySelectorAll(prefixSectionStepActive + elemCustomSelectOneMenu).forEach( function(elem) {
+        appendNewNode(elem, true, 'label', elem.id + suffixElemPlaceholder, Array(classNamePlaceholder), elem.querySelector('input').placeholder);
+
+        let valueSelectOneMenu = elem.querySelector(elemDefaultLabelSelectOneMenu);
+        processClassById(Array(elem.id, elem.id + suffixElemPlaceholder), Array(classNameHasContent), !( valueSelectOneMenu.innerHTML !== '&nbsp;' || valueSelectOneMenu.innerHTML.trim() === '' ));
+
+        let panelOptions = document.getElementById(elem.id + suffixElemPanelOptions);
+
+        elem.addEventListener('click', function() {
+            panelOptions.style.top = (heightFixPanelOption + elem.getBoundingClientRect().top + elem.clientHeight)+'px';
+            processClassById(Array(elem.id), Array(classNameflagPanelOptionsOn), (panelOptions.style.display === 'none'));
+        });
+
+        panelOptions.querySelectorAll('li').forEach( function(elemLi, index) {
+            elemLi.style.display = (index == 0 && elemLi.innerHTML === '&nbsp;' || elemLi.innerHTML.trim() === '' )?'none':'';
+
+            elemLi.addEventListener('click', function() {
+                processClassById(Array(elem.id, elem.id + suffixElemPlaceholder), Array(classNameHasContent), false);
+                processClassById(Array(elem.id), Array(classNameflagPanelOptionsOn), true);
+            });
+        });
+
+        panelOptions.addEventListener('wheel', function(evt) {
+            evt.stopPropagation();
+        });
+    });
+
+    window.addEventListener('resize', function() {
+        document.querySelectorAll(prefixSectionStepActive + elemCustomSelectOneMenu).forEach( function(elem) {
+            let selectOneMenuPanel = document.getElementById(elem.id + suffixElemPanelOptions);
+            selectOneMenuPanel.style.width = elem.clientWidth+'px';
+            selectOneMenuPanel.style.display= 'none';
+        });
+    });
+
+    window.addEventListener('wheel', function() {
+        document.querySelectorAll(prefixSectionStepActive + elemCustomSelectOneMenu).forEach(function(elem) {
+            document.getElementById(elem.id + suffixElemPanelOptions).style.display = 'none';
+            processClassById(Array(elem.id), Array(classNameflagPanelOptionsOn), true);
+        });
+    });
+};
+
+/**
+ * Funcion customInputText() :: Modificacion de estructura HTML de los elementos inputText de primefaces
+ */
+var customInputText = function() {
+    'use strict';
+    const suffixElemPlaceholder = '_placeholder';
+    const suffixElemCashField = '_prefix';
+    const suffixElemPasswordField = '_prefix';
+    const classNamePlaceholder = 'input-placeholder__coronitaV2';
+    const classNameHasContent = 'has-content';
+    const classNameNoHasPlaceholder = 'no-has-placeholder';
+    const classNamePrefixCashField = 'input-cash-field__coronitaV2';
+    const classNameIconPasswordField =  'input-password-field__coronitaV2';
+    const classNameButtonSearchField= 'search-input__coronitaV2';
+    const elemCustomInputText = 'input.input__coronitaV2';
+    const prefixSectionStepActive = 'div.step.active ';
+
+    document.querySelectorAll( prefixSectionStepActive + elemCustomInputText).forEach( function(elem) {
+        let placeholderText = elem.placeholder;
+        appendNewNode(elem, true, 'label', elem.id + suffixElemPlaceholder, Array(classNamePlaceholder), placeholderText);
+
+        if ( elem.parentNode.classList.contains('cash-field') ) {
+            elem.classList.add('cash-field');
+            let classNames = Array(classNamePrefixCashField);
+            if (placeholderText === '') {
+                classNames.push(classNameNoHasPlaceholder);
+            }
+
+            appendNewNode(elem, true, 'label', elem.id + suffixElemCashField, classNames, '$');
+        }
+
+        if ( elem.parentNode.classList.contains('password-field') ) {
+            elem.classList.add('password-field');
+            appendNewNode(elem, false, 'i', elem.id + suffixElemPasswordField, Array(classNameIconPasswordField), '');
+
+            elem.nextSibling.addEventListener('click', function() {
+                elem.type = (elem.type === 'password')?'text':'password';
+            });
+        }
+
+        let elemIds = Array(elem.id, elem.id + suffixElemPlaceholder, elem.id + suffixElemCashField, (elem.nextElementSibling !== null && elem.nextElementSibling.classList.contains(classNameButtonSearchField))?elem.nextSibling.id:'' );
+        processClassById(elemIds, Array(classNameHasContent), (elem.value === ''));
+
+        elem.addEventListener('input', function() {
+            processClassById(elemIds, Array(classNameHasContent), (elem.value === ''));
+        });
+    });
+};
+
+/**
+ * Funcion initilizeCustomComponents() :: Busca el primer elemento select - input dentro de un section y realiza la customizacion del mismo
+ */
+var initilizeCustomComponents = function() {
+    'use strict';
+
+    customInputText();
+    customSelectOneMenu();
+    /**
+     * windowheight() :: Se isa para mantener la visualización correcta en la vista responsive
+     */
+
+    var windowheight = window.innerHeight;
+    document.querySelectorAll('.step').forEach(function(step) {
+        step.style.height = windowheight + 'px';
+    });
+    document.querySelectorAll('.steps-mask').forEach(function(step) {
+        step.style.height = windowheight + 'px';
+    });
+};
+
+$.ajaxSetup({
+    cache: false
+});
+
+$(document).ready(function() {
+    initilizeCustomComponents();
+});
+
+/**
+ * Funciones para el manejo de ventana modal "Salir - Continuar en el Flujo"
+ */
+document.querySelectorAll('button.btnModalClose, a.btnModalContinue').forEach( function(elem) {
+    elem.addEventListener('click', function() {
+        document.querySelector('#coronita-modal').style.display= 'none';
+    });
+});
+
+var breadCrumb = function() {
+    document.getElementById("sh5").style.display = "block";
+    document.getElementById("sh3").style.display="none";
+}
+
+var breadcrumbs = (function() {
+    return {
+        hideBreadCrumbs: function(background, headerDisplay, progressBarDisplay, returnButtonDisplay, breadcrumbsDisplay ){
+            document.getElementById("subheader").style.background=background;
+            document.getElementById("sh1").style.display=headerDisplay;
+            document.getElementById("sh3").style.display=progressBarDisplay;
+            document.getElementById("sh4").style.display=returnButtonDisplay;
+            document.getElementById("sh5").style.display=breadcrumbsDisplay;
+        },
+        restoreHeader: function(){
+            document.getElementById("subheader").style.background="rgb(7, 33, 70)";
+            document.getElementById("sh1").style.display="-webkit-box";
+            document.getElementById("sh3").style.display="-webkit-box";
+            document.getElementById("sh4").style.display="-webkit-box";
+        }
+    }
+})();
+
+var isNumber = function(evt) {
+    var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+        return false;
+    return true;
+}
+
+var removeImgBreadcrumb = function() {
+    for (var i = 0; i < document.getElementsByClassName("img1").length; i++) {
+        if (document.getElementsByClassName("img1").length - 1 == i) {
+            document.getElementsByClassName("img1").item(i).style.display = "none"
+        }
+    }
+}
+
+var cardNumberFormat = function(component) {
+    componentValue = component.value;
+    componentValue = componentValue.replace(/\ /g, "");
+    componentValue = componentValue.replace(/\./g, "");
+    componentValue = componentValue.replace(/^0+/, '');
+
+    if (componentValue.length > 16) {
+        componentValue = componentValue.substring(0, 16);
+    }
+
+    if (componentValue.length > 16) {
+        componentValue = componentValue.substring(0, 16);
+    }
+    if (componentValue.length == 16) {
+        componentValue = componentValue.substring(0, 16);
+        componentValue = componentValue.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/,
+            "$1 $2 $3 $4");
+    } else if (componentValue.length < 16 && componentValue.length > 12) {
+        componentValue = componentValue.replace(/(\d{4})(\d{4})(\d{4})/,
+            "$1 $2 $3 ");
+    } else if (componentValue.length < 12 && componentValue.length > 8) {
+        componentValue = componentValue.replace(/(\d{4})(\d{4})/, "$1 $2 ");
+    } else if (componentValue.length < 8 && componentValue.length > 4) {
+        componentValue = componentValue.replace(/(\d{4})/, "$1 ");
+    }
+    document.getElementById(component.id).value = componentValue;
+}
+var numberFormat = function numberFormat(numero){
+        const resultado = "";
+        if(numero[0]=="-")
+        {
+            nuevoNumero=numero.replace(/\./g,'').substring(1);
+        }else{
+            nuevoNumero=numero.replace(/\./g,'');
+        }
+         
+        if(numero.indexOf(",")>=0){
+            nuevoNumero=nuevoNumero.substring(0,nuevoNumero.indexOf(","));
+			}
+ 
+        for (var j, i = nuevoNumero.length - 1, j = 0; i >= 0; i--, j++){
+            resultado = nuevoNumero.charAt(i) + ((j > 0) && (j % 3 == 0)? ".": "") + resultado;
+			}
+ 
+      
+        if(numero.indexOf(",")>=0){
+            resultado+=numero.substring(numero.indexOf(","));
+			}
+            return resultado;
+}
+
+function formatingNumber(component) {
+	componentValue = component.value;
+	componentValue = componentValue.replace(/\./g, "");
+	componentValue = componentValue.replace(/^0+/, '');
+	componentValue = componentValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+	document.getElementById(component.id).value = componentValue;
+}
+
+var formatCards = function(component, event) {
+    if (event.keyCode != 8) {
+        if (event.keyCode != 46) {
+            if (component.value.length == 4) {
+                component.value = component.value + " ";
+            } else if (component.value.length == 9) {
+                component.value = component.value + " ";
+            } else if (component.value.length == 14) {
+                component.value = component.value + " ";
+            }
+        }
+    }
+}
+
+var phoneNumberFormat = function(component) {
+    componentValue = component.value;
+    componentValue = componentValue.replace(/\ /g,"");
+    componentValue = componentValue.replace(/\./g,"");
+    componentValue = componentValue.replace(/^0+/, '');
+    if(componentValue.length > 10){
+        componentValue = componentValue.substring(0, 10);
+    }
+
+    if(componentValue.length == 10){
+        componentValue = componentValue.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
+    }else if (componentValue.length < 10 && componentValue.length > 6){
+        componentValue = componentValue.replace(/(\d{3})(\d{3})(\d{1})/, "$1 $2 $3");
+    }		else if (componentValue.length == 6){
+        componentValue = componentValue.replace(/(\d{3})(\d{3})/, "$1 $2");
+    }	else if (componentValue.length < 6 && componentValue.length > 3){
+        componentValue = componentValue.replace(/(\d{3})(\d{1})/, "$1 $2");
+    }
+    componentValue = componentValue.replace(/\ /g,"");
+    componentValue = componentValue.replace(/\./g,"");
+    componentValue = componentValue.replace(/^0+/, '');
+    if(componentValue.length == 10){
+        componentValue = componentValue.substring(0, 10);
+        componentValue = componentValue.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
+    }
+
+    document.getElementById(component.id).value = componentValue;
+}
+
+var formatNumber = function(component) {
+    componentValue = component.value;
+    componentValue = componentValue.replaceAll(" ", "");
+    componentValue = componentValue.replace(/\./g, "");
+    componentValue = componentValue.replace(/^0+/, '');
+    componentValue = componentValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    document.getElementById(component.id).value = componentValue;
+}
+
+function isLetter() {
+    return (event.charCode > 64 && event.charCode < 91)
+        || (event.charCode > 96 && event.charCode < 123)
+        || event.charCode == 32;
+}
+
+var openOverlay = function() {
+    $('.overlay').fadeIn('slow');
+    $('.overlay').delay(2000).fadeOut();
+}
+
+var printElement = function(getElement) {
+    var ficha = document.getElementById(getElement);
+    var ventimp = window.open(' ', 'popimpr');
+    ventimp.document.write(ficha.innerHTML);
+    ventimp.document.close();
+    ventimp.print();
+    ventimp.close();
+}
+
+var tx;
+var startTimer = function(duration, display) {
+    var duration = duration * 60;
+    display = document.querySelector('#' + display);
+    var timer = duration, minutes, seconds;
+    var interval = 1000;
+    tx = setInterval(function() {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = minutes + ":" + seconds;
+        if (timer <= 0) {
+            // timer = duration;
+            var token = document.getElementsByClassName('token');
+            $(token).css('display', 'block');
+            $('#blockTimer').css('display', 'none');
+
+        }
+        --timer;
+        if (timer < 0) {
+            window.clearInterval(tx);
+        }
+    }, interval);
+}
+
+var deleteContacts = function() {
+    document.querySelectorAll('.options-button').forEach( function(elem) {
+        elem.addEventListener('click', function(event) {
+            if(event.target.classList.contains('open')){
+                event.target.parentElement.style.left = 'calc(100% - 40px)';
+            }else{
+                event.target.parentElement.style.left = 'calc(100% - 80px)';
+            }
+            event.target.classList.toggle('open');
+        });
+    });
+};

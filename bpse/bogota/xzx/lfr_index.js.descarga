@@ -1,0 +1,37 @@
+'use strict';
+
+//Modal DOM manipulation
+let modal = document.querySelector('.modal');
+let overlay = document.querySelector('.overlay');
+let toast = document.querySelector('.toast');
+
+const showModal = function() {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
+
+const hideModal = function() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+const hideToast = function () {
+    toast.classList.add('hidden');
+}
+
+//Collapse DOM manipulation
+let btnClose = document.querySelectorAll('.container__info--close');
+let showCollapseBtn = document.querySelectorAll('.collapse__header--btn');
+let collapseContent = document.querySelectorAll('.collapse__content');
+
+const closeInfo = function() {
+    alert('Función para cerrar')
+}
+
+for(let i = 0; i < showCollapseBtn.length; i++) {
+    showCollapseBtn[i].addEventListener("click", function() {
+        this.classList.toggle('rotate-up');
+        collapseContent[i].classList.toggle('hidden');
+    })
+}
+
